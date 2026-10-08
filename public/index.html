@@ -255,7 +255,22 @@ h1,h2,h3,h4,p,ul,ol,figure{margin:0}
 /* =========================================================
    8. LA FIRMA
    ========================================================= */
-.firm{background:var(--paper);padding:var(--pad) 0}
+.firm{--ink-panel:#0e1a26;--gap:clamp(32px,6vw,96px);--W:calc(min(100vw,var(--maxw)) - 2 * var(--gutter));--col1:max(300px,calc(var(--W) * .34));
+  position:relative;background:var(--paper);padding:var(--pad) 0;overflow:clip}
+/* Panel oscuro de la columna izquierda: del borde de la pantalla a la mitad del espacio entre columnas, todo el alto de la sección */
+.firm::before{content:"";position:absolute;top:0;bottom:0;left:0;width:calc((100vw - min(100vw,var(--maxw))) / 2 + var(--gutter) + var(--col1) + var(--gap) / 2);
+  background:linear-gradient(180deg,#101d2a 0%,var(--ink-panel) 40%,#0b1520 100%)}
+.firm .firm__grid{position:relative;grid-template-columns:var(--col1) 1fr;gap:var(--gap)}
+.firm__aside .sec-head{color:rgba(255,255,255,.58)}
+.firm__aside .sec-head .n{color:var(--gold)}
+.firm__aside .sec-head i{background:var(--gold);opacity:.85}
+.firm__aside .firm__kicker{color:#fff;max-width:14em}
+.firm__statue{position:sticky;top:calc(var(--nav-h) + 16px);margin:36px calc(var(--gap) / -2) 0 0;height:min(82vh,860px);
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 95%,transparent 100%),linear-gradient(180deg,transparent 0,#000 16%,#000 88%,transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 95%,transparent 100%),linear-gradient(180deg,transparent 0,#000 16%,#000 88%,transparent 100%);
+  mask-composite:intersect}
+.firm__statue video{display:block;width:100%;height:100%;object-fit:cover;object-position:70% 100%}
 .firm__grid{display:grid;grid-template-columns:minmax(220px,.32fr) 1fr;gap:clamp(32px,6vw,96px)}
 .firm__kicker{font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.3;color:var(--navy);max-width:12em}
 .statement{font-family:var(--f-display);font-size:clamp(28px,3.35vw,50px);line-height:1.2;letter-spacing:-.012em;color:var(--ink)}
@@ -626,6 +641,10 @@ h1,h2,h3,h4,p,ul,ol,figure{margin:0}
 @media (max-width:900px){
   :root{--nav-h:68px}
   .firm__grid,.areas__head,.sectors__head,.contact__grid{grid-template-columns:1fr}
+  .firm .firm__grid{grid-template-columns:1fr}
+  .firm::before{display:none}
+  .firm__aside{margin:calc(var(--pad) * -1) calc(var(--gutter) * -1) 0;padding:var(--pad) var(--gutter) 0;background:linear-gradient(180deg,#101d2a 0%,var(--ink-panel) 50%,#0b1520 100%)}
+  .firm__statue{position:relative;top:auto;margin:20px auto 0;max-width:520px;height:min(72svh,640px)}
   .pillars,.commit{grid-template-columns:1fr;gap:28px}
   .area__row{grid-template-columns:40px 1fr 40px;gap:14px;padding:24px 0}
   .area__icon{width:40px;height:40px}
@@ -789,9 +808,16 @@ h1,h2,h3,h4,p,ul,ol,figure{margin:0}
   <!-- ============ 01 LA FIRMA ============ -->
   <section class="firm" id="firma" aria-labelledby="firma-t">
     <div class="wrap firm__grid">
-      <div>
+      <div class="firm__aside">
         <div class="sec-head"><span class="n">01</span><i></i><span>La firma</span></div>
         <h2 id="firma-t" class="firm__kicker" data-r>Rigor profesional, atención personalizada y visión integral.</h2>
+        <!-- Diosa Temis en movimiento (video en bucle, sin sonido). Se reproduce solo cuando está a la vista. -->
+        <div class="firm__statue" aria-hidden="true">
+          <video muted loop playsinline preload="metadata" poster="media/temis-poster.webp" width="540" height="720">
+            <source src="media/temis.webm" type="video/webm">
+            <source src="media/temis.mp4" type="video/mp4">
+          </video>
+        </div>
       </div>
       <div>
         <p class="statement">Somos una firma jurídica colombiana con sede en Bogotá D.C., dedicada a la asesoría, consultoría, representación y acompañamiento jurídico de personas naturales, empresas e instituciones.</p>
@@ -1339,6 +1365,11 @@ h1,h2,h3,h4,p,ul,ol,figure{margin:0}
   const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
   const root = document.documentElement;
   const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* Estatua de Temis: se reproduce solo mientras está a la vista; con movimiento reducido queda la imagen fija. */
+  const statueVideo = $('.firm__statue video');
+  if (statueVideo && !RM && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => { if (e.isIntersecting) statueVideo.play().catch(() => {}); else statueVideo.pause(); }, { threshold: 0.15 }).observe(statueVideo);
+  }
   const FINE = matchMedia('(hover: hover) and (pointer: fine)').matches;
   const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
   const lerp = (a, b, t) => a + (b - a) * t;
