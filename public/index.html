@@ -548,7 +548,8 @@ h1,h2,h3,h4,p,ul,ol,figure{margin:0}
 .contact .wrap{position:relative}
 .contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px)}
 .faq{background:var(--paper);padding:var(--pad) 0}
-.faq__grid{display:grid;grid-template-columns:minmax(260px,.42fr) 1fr;gap:clamp(32px,6vw,96px);align-items:start}
+.faq .title{font-size:clamp(32px,3vw,46px);max-width:none}
+.faq__grid{display:grid;grid-template-columns:minmax(300px,.55fr) 1fr;gap:clamp(32px,6vw,96px);align-items:start}
 .faq__list{border-top:1px solid var(--hair-l)}
 .faq details{border-bottom:1px solid var(--hair-l)}
 .faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:26px 0;font-family:var(--f-display);font-size:clamp(20px,1.8vw,25px);line-height:1.25;color:var(--navy)}
@@ -599,7 +600,7 @@ h1,h2,h3,h4,p,ul,ol,figure{margin:0}
 .foot ul{list-style:none;padding:0;display:grid;gap:10px;font-size:16px;color:rgba(255,255,255,.75)}
 .foot ul a{transition:color .3s}
 .foot ul a:hover{color:var(--gold)}
-.foot__mega{--f:0%;margin:40px 0 28px;font-family:var(--f-display);font-size:clamp(58px,14.6vw,236px);line-height:.9;letter-spacing:-.035em;white-space:nowrap;
+.foot__mega{--f:0%;margin:40px 0 28px;font-family:var(--f-display);font-size:min(14.6vw,calc((min(100vw,var(--maxw)) - 2 * var(--gutter)) / 6.15));line-height:.9;letter-spacing:-.035em;white-space:nowrap;
   color:transparent;background:linear-gradient(90deg,rgba(189,189,189,.55) 0 var(--f),rgba(255,255,255,.05) var(--f) 100%);-webkit-background-clip:text;background-clip:text}
 .foot__base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--f-label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
 
