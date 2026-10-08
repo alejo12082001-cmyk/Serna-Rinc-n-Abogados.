@@ -1,0 +1,123 @@
+/* =========================================================
+   Asistente virtual · Serna-Rincón Abogados
+   Usa los tokens del brandbook definidos en index.html (:root).
+   Los valores después de la coma son respaldo por si se carga fuera de la landing.
+   ========================================================= */
+.src{
+  --src-navy:var(--navy,#0F2B4B); --src-navy-2:var(--navy-2,#0B2140);
+  --src-ink:var(--ink,#17171C); --src-gold:var(--gold,#DACD99);
+  --src-paper:var(--paper,#F6F5F1); --src-white:var(--white,#FFFFFF);
+  --src-muted:var(--muted,#5E626B); --src-hair:var(--hair-l,rgba(23,23,28,.12));
+  --src-hair-d:var(--hair-d,rgba(255,255,255,.12));
+  --src-display:var(--f-display,"Gloock",Georgia,serif);
+  --src-body:var(--f-body,"Source Serif 4",Georgia,serif);
+  --src-label:var(--f-label,"Jost","Helvetica Neue",Arial,sans-serif);
+  --src-ease:var(--ease,cubic-bezier(.16,1,.3,1));
+  font-family:var(--src-body);color:var(--src-ink);
+}
+.src *,.src *::before,.src *::after{box-sizing:border-box}
+.src button{cursor:pointer}
+.src .src-sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* El botón de WhatsApp de la landing sube para dejar la esquina al asistente */
+.src-ready .wa{bottom:88px}
+.nav-open .src-launcher{visibility:hidden}
+
+/* ---------- Botón flotante ---------- */
+.src-launcher{position:fixed;right:20px;bottom:20px;z-index:46;width:56px;height:56px;border:0;border-radius:50%;
+  display:grid;place-items:center;background:var(--src-navy);color:var(--src-white);
+  box-shadow:inset 0 0 0 1px rgba(218,205,153,.55),0 12px 28px -10px rgba(0,0,0,.6);
+  transition:transform .5s var(--src-ease),background .4s}
+.src-launcher:hover{transform:scale(1.06);background:var(--src-navy-2)}
+.src-launcher svg{width:24px;height:24px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.src-launcher .src-dot{fill:var(--src-gold);stroke:none}
+.src-launcher:focus-visible{outline:2px solid var(--src-gold);outline-offset:3px}
+.src-open .src-launcher{transform:scale(.9)}
+
+/* ---------- Panel ---------- */
+.src-panel{position:fixed;right:20px;bottom:88px;z-index:90;width:400px;max-width:calc(100vw - 40px);
+  height:min(640px,calc(100vh - 120px));height:min(640px,calc(100dvh - 120px));
+  display:flex;flex-direction:column;background:var(--src-paper);border-radius:6px;overflow:hidden;
+  box-shadow:0 0 0 1px var(--src-hair),0 30px 60px -20px rgba(8,24,48,.55);
+  opacity:0;transform:translateY(12px);visibility:hidden;
+  transition:opacity .35s var(--src-ease),transform .45s var(--src-ease),visibility 0s linear .45s}
+.src-panel.is-open{opacity:1;transform:none;visibility:visible;transition:opacity .35s var(--src-ease),transform .45s var(--src-ease),visibility 0s}
+
+.src-head{display:flex;align-items:center;gap:12px;padding:16px 14px 16px 20px;background:var(--src-navy);color:var(--src-white);
+  box-shadow:inset 0 -1px 0 rgba(218,205,153,.36)}
+.src-head__t{flex:1;min-width:0}
+.src-head__l{display:block;font-family:var(--src-label);font-size:11px;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--src-gold)}
+.src-head h2{margin:2px 0 0;font-family:var(--src-display);font-weight:400;font-size:21px;line-height:1.2;letter-spacing:-.01em}
+.src-icon{width:40px;height:40px;border:0;border-radius:4px;background:transparent;display:grid;place-items:center;color:var(--src-white);transition:background .3s}
+.src-icon:hover{background:rgba(255,255,255,.08)}
+.src-icon svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.src-head :focus-visible{outline:2px solid var(--src-gold);outline-offset:2px}
+
+/* ---------- Conversación ---------- */
+.src-log{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:20px;display:flex;flex-direction:column;gap:14px;font-size:16px;line-height:1.55}
+.src-panel :focus-visible{outline:2px solid var(--src-navy);outline-offset:2px}
+
+.src-notice{margin:0;padding:12px 14px;background:var(--src-white);border-left:2px solid var(--src-navy);
+  font-size:14px;line-height:1.5;color:var(--src-muted)}
+.src-notice strong{color:var(--src-ink);font-weight:500}
+.src-notice a{color:var(--src-navy);text-decoration:underline;text-underline-offset:2px}
+
+.src-msg{max-width:88%;padding:11px 15px;border-radius:6px;overflow-wrap:anywhere}
+.src-msg p,.src-msg ul,.src-msg ol{margin:0}
+.src-msg p+p,.src-msg p+ul,.src-msg p+ol,.src-msg ul+p,.src-msg ol+p{margin-top:8px}
+.src-msg ul,.src-msg ol{padding-left:20px}
+.src-msg li+li{margin-top:3px}
+.src-msg strong{font-weight:500}
+.src-msg a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.src-msg--bot{align-self:flex-start;background:var(--src-white);box-shadow:inset 0 0 0 1px var(--src-hair);border-top-left-radius:2px}
+.src-msg--user{align-self:flex-end;background:var(--src-navy);color:var(--src-white);border-top-right-radius:2px}
+.src-msg--user a{color:var(--src-gold)}
+.src-msg--error{align-self:flex-start;background:var(--src-white);box-shadow:inset 0 0 0 1px var(--src-navy);border-left:3px solid var(--src-navy)}
+.src-retry{margin-top:10px;display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border:0;border-radius:4px;
+  background:var(--src-navy);color:var(--src-white);font-family:var(--src-label);font-size:11.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.src-retry:hover{background:var(--src-navy-2)}
+
+/* Indicador de escritura */
+.src-typing{align-self:flex-start;display:inline-flex;align-items:center;gap:5px;padding:14px 16px;background:var(--src-white);border-radius:6px;border-top-left-radius:2px;box-shadow:inset 0 0 0 1px var(--src-hair)}
+.src-typing i{width:6px;height:6px;border-radius:50%;background:var(--src-navy);opacity:.35;animation:src-blink 1.2s infinite}
+.src-typing i:nth-child(2){animation-delay:.2s}
+.src-typing i:nth-child(3){animation-delay:.4s}
+@keyframes src-blink{0%,80%,100%{opacity:.25}40%{opacity:1}}
+
+/* Preguntas sugeridas */
+.src-sugg{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.src-chip{min-height:38px;padding:8px 14px;border:0;border-radius:4px;background:var(--src-white);box-shadow:inset 0 0 0 1px rgba(15,43,75,.35);
+  color:var(--src-navy);font-size:14.5px;line-height:1.3;text-align:left;transition:background .3s,color .3s}
+.src-chip:hover{background:var(--src-navy);color:var(--src-white)}
+
+/* ---------- Formulario ---------- */
+.src-form{padding:12px 14px 14px;background:var(--src-white);border-top:1px solid var(--src-hair)}
+.src-row{display:flex;align-items:flex-end;gap:10px}
+.src-input{flex:1;min-height:44px;max-height:132px;resize:none;padding:11px 12px;border:0;border-radius:4px;background:var(--src-paper);
+  box-shadow:inset 0 0 0 1px var(--src-hair);font:inherit;font-size:16px;line-height:1.4;color:var(--src-ink)}
+.src-input::placeholder{color:var(--src-muted);opacity:1}
+.src-input:focus-visible{outline:2px solid var(--src-navy);outline-offset:0}
+.src-input:disabled{opacity:.6}
+.src-send{flex:none;width:44px;height:44px;border:0;border-radius:4px;display:grid;place-items:center;background:var(--src-navy);color:var(--src-white);
+  box-shadow:inset 0 0 0 1px rgba(218,205,153,.36);transition:background .3s}
+.src-send:hover:not(:disabled){background:var(--src-navy-2)}
+.src-send:disabled{opacity:.45;cursor:not-allowed}
+.src-send svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5}
+.src-meta{display:flex;justify-content:space-between;gap:10px;margin-top:6px;font-family:var(--src-label);font-size:11px;letter-spacing:.08em;color:var(--src-muted)}
+.src-count.is-over{color:var(--src-ink);font-weight:500}
+
+/* ---------- Móvil: pantalla completa ---------- */
+@media (max-width:600px){
+  .src-panel{inset:0;width:100%;max-width:none;height:100%;border-radius:0}
+  .src-open .src-launcher{visibility:hidden}
+  .src-open body{overflow:hidden}
+  .src-head{padding-top:max(16px,env(safe-area-inset-top))}
+  .src-form{padding-bottom:max(14px,env(safe-area-inset-bottom))}
+}
+
+/* ---------- Movimiento reducido ---------- */
+@media (prefers-reduced-motion:reduce){
+  .src-launcher,.src-panel,.src-panel.is-open,.src-chip,.src-send,.src-icon{transition:none}
+  .src-panel{transform:none}
+  .src-typing i{animation:none;opacity:.7}
+}

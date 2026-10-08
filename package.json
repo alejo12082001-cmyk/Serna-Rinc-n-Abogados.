@@ -1,0 +1,14 @@
+{
+  "name": "serna-rincon-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --env-file-if-exists=.env dev-server.mjs",
+    "probar": "node scripts/probar-chat.mjs",
+    "archivo-unico": "node scripts/generar-archivo-unico.mjs"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "@google/genai": "^2.27.0"
+  }
+}

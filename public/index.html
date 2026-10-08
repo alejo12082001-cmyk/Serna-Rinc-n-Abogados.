@@ -1,0 +1,1847 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Serna-Rincón Abogados · Estrategia jurídica para decisiones que importan</title>
+<meta name="description" content="Serna-Rincón Abogados: firma jurídica en Colombia. Estrategia, litigio y asesoría corporativa con un método propio: analizamos, diseñamos, anticipamos y actuamos.">
+<meta name="theme-color" content="#0F2B4B">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_CO">
+<meta property="og:site_name" content="Serna-Rincón Abogados">
+<meta property="og:title" content="Serna-Rincón Abogados · Estrategia jurídica">
+<meta property="og:description" content="Estrategia jurídica para las decisiones que importan.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230F2B4B'/%3E%3Cg fill='%23E6E8EB'%3E%3Crect x='13' y='12' width='38' height='4' rx='2'/%3E%3Crect x='21' y='25' width='3.5' height='22'/%3E%3Crect x='27' y='25' width='3.5' height='26'/%3E%3Crect x='33.5' y='25' width='3.5' height='26'/%3E%3Crect x='39.5' y='25' width='3.5' height='22'/%3E%3C/g%3E%3C/svg%3E">
+
+<!-- Tipografías del brandbook:
+     · Títulos: Gloock (Google Fonts).
+     · Cuerpo: Magister. No está en Google Fonts; si la firma tiene la licencia y los archivos,
+       súbalos a /fonts y descomente la línea url(...) del @font-face. Mientras tanto se usa
+       Source Serif 4 como respaldo, que tiene un dibujo y una mancha tipográfica cercanos.
+     · Rótulos en mayúsculas: Jost, que replica el "ABOGADOS" geométrico del logotipo. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Jost:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,500;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet">
+
+<script>
+  /* Se arma antes del primer pintado. El temporizador garantiza que el contenido
+     nunca quede oculto aunque el script principal falle. */
+  document.documentElement.classList.add('js');
+  setTimeout(function(){document.documentElement.classList.add('loaded');}, 3200);
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LegalService",
+  "name": "Serna-Rincón Abogados",
+  "description": "Firma de abogados en Colombia: estrategia jurídica, litigio y asesoría corporativa.",
+  "telephone": "+57 315 609 9876",
+  "email": "mailto:sernarincon@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Bogotá", "addressCountry": "CO" },
+  "areaServed": { "@type": "Country", "name": "Colombia" },
+  "sameAs": ["https://www.instagram.com/sernarinconabogados/"],
+  "knowsAbout": ["Derecho corporativo", "Contratos", "Litigio", "Derecho laboral", "Contratación estatal", "Sucesiones"]
+}
+</script>
+
+<style>
+@font-face{
+  font-family:"Magister";
+  font-style:normal;font-weight:400;font-display:swap;
+  src: local("Magister"), local("Magister Regular");
+  /* , url("fonts/Magister-Regular.woff2") format("woff2"); */
+}
+
+/* =========================================================
+   1. TOKENS (paleta oficial del brandbook)
+   ========================================================= */
+:root{
+  --navy:#0F2B4B;          /* 01 Azul / Navy      */
+  --plomo:#BDBDBD;         /* 02 Gris / Plomo     */
+  --ink:#17171C;           /* 03 Negro / Absoluto */
+  --gold:#DACD99;          /* 04 Dorado / Imperial*/
+  /* derivados (solo tonos de la misma familia) */
+  --navy-2:#0B2140; --navy-3:#081830;
+  --ink-2:#0E0E12;
+  --gold-text:#8E7C3E;     /* dorado oscurecido: legible sobre fondos claros */
+  --paper:#F6F5F1; --white:#FFFFFF;
+  --text:#17171C; --muted:#5E626B;
+  --hair-d:rgba(255,255,255,.12); --hair-l:rgba(23,23,28,.12);
+
+  --f-display:"Gloock", Georgia, "Times New Roman", serif;
+  --f-body:"Magister","Source Serif 4", Georgia, serif;
+  --f-label:"Jost","Helvetica Neue", Arial, sans-serif;
+
+  --ease:cubic-bezier(.16,1,.3,1);
+  --ease-io:cubic-bezier(.65,0,.35,1);
+  --gutter:clamp(20px,5vw,72px);
+  --maxw:1320px;
+  --nav-h:78px;
+  --pad:clamp(96px,14vh,170px);
+}
+
+/* =========================================================
+   2. BASE
+   ========================================================= */
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;background:var(--ink);color:var(--text);font-family:var(--f-body);font-size:18px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:hidden}
+.nav-open body{overflow:hidden}
+img,svg,canvas{display:block}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+h1,h2,h3,h4,p,ul,ol,figure{margin:0}
+::selection{background:var(--gold);color:var(--ink)}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 var(--gutter)}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.defs{position:absolute;width:0;height:0;overflow:hidden}
+.skip{position:fixed;left:16px;top:-80px;z-index:200;background:var(--gold);color:var(--ink);padding:12px 18px;font-family:var(--f-label);font-size:13px;letter-spacing:.1em;text-transform:uppercase;transition:top .3s}
+.skip:focus{top:16px}
+
+.label{font-family:var(--f-label);font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase}
+
+/* Encabezado de sección: número + línea + rótulo */
+.sec-head{display:flex;align-items:center;gap:16px;margin-bottom:34px;font-family:var(--f-label);font-size:12px;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+.sec-head .n{font-family:var(--f-display);font-size:15px;letter-spacing:0;color:var(--navy)}
+.sec-head i{display:block;width:44px;height:1px;background:currentColor;opacity:.5}
+.dark .sec-head{color:rgba(255,255,255,.58)}
+.dark .sec-head .n{color:var(--gold)}
+.dark .sec-head i{background:var(--gold);opacity:.85}
+
+.title{font-family:var(--f-display);font-weight:400;font-size:clamp(36px,5.1vw,76px);line-height:1.03;letter-spacing:-.015em;max-width:16ch}
+
+/* =========================================================
+   3. SISTEMA DE REVELADO
+   Usa las propiedades individuales translate/scale para no chocar
+   con los transform que escribe JS (parallax, magnetismo, tilt).
+   ========================================================= */
+.split .w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.11em;margin-bottom:-.11em}
+.js .split .w>span{display:inline-block;transform:translateY(106%);transition:transform 1.1s var(--ease);transition-delay:calc(var(--i)*42ms + 60ms)}
+.split.in .w>span{transform:none}
+
+.js [data-r]{opacity:0;translate:0 26px;transition:opacity 1s var(--ease),translate 1.15s var(--ease);transition-delay:calc(var(--d,0)*1ms)}
+.js [data-r].in{opacity:1;translate:0 0}
+
+.js .sec-head i{transform:scaleX(0);transform-origin:left;transition:transform 1.1s var(--ease) .15s}
+.sec-head.in i{transform:none}
+
+/* =========================================================
+   4. CORTINA DE ENTRADA
+   ========================================================= */
+.curtain{display:none}
+.js .curtain{position:fixed;inset:0;z-index:100;display:grid;place-items:center;background:var(--ink-2);
+  clip-path:inset(0 0 0 0);transition:clip-path 1.05s var(--ease-io)}
+.loaded .curtain{clip-path:inset(0 0 100% 0);pointer-events:none}
+.curtain__in{display:flex;flex-direction:column;align-items:center;gap:20px;transition:opacity .5s var(--ease),transform .7s var(--ease)}
+.loaded .curtain__in{opacity:0;transform:translateY(-24px)}
+.curtain__mark{width:62px;height:62px;opacity:0;transform:translateY(10px);animation:cIn .9s var(--ease) .05s forwards}
+.curtain__rule{width:150px;height:1px;background:var(--gold);transform:scaleX(0);animation:cRule 1.1s var(--ease) .25s forwards}
+.curtain__t{font-family:var(--f-label);font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:rgba(255,255,255,.6);opacity:0;animation:cIn .9s var(--ease) .4s forwards}
+@keyframes cIn{to{opacity:1;transform:none}}
+@keyframes cRule{to{transform:scaleX(1)}}
+
+/* =========================================================
+   5. NAVEGACIÓN
+   ========================================================= */
+.progress{position:fixed;left:0;top:0;right:0;height:2px;z-index:60;background:var(--gold);transform:scaleX(0);transform-origin:left;pointer-events:none}
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;height:var(--nav-h);display:flex;align-items:center;color:#fff;
+  border-bottom:1px solid transparent;
+  transition:translate .55s var(--ease),background-color .4s,border-color .4s,opacity 1s var(--ease) .55s}
+.js .nav{opacity:0}
+.loaded .nav{opacity:1}
+.nav.is-solid{background:rgba(14,14,18,.74);-webkit-backdrop-filter:blur(14px) saturate(140%);backdrop-filter:blur(14px) saturate(140%);border-bottom-color:var(--hair-d)}
+.loaded .nav.is-hidden{translate:0 -100%}
+.nav__in{display:flex;align-items:center;justify-content:space-between;gap:28px}
+
+.brand{display:flex;align-items:center;gap:12px;flex:0 0 auto}
+.brand__mark{width:36px;height:36px}
+.brand__type{display:flex;flex-direction:column;line-height:1}
+.brand__name{font-family:var(--f-display);font-size:21px;letter-spacing:-.005em}
+.brand__rule{display:block;height:1px;margin:5px 0 5px;background:var(--gold);opacity:.85}
+.brand__sub{font-family:var(--f-label);font-size:8.5px;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+
+.nav__links{display:flex;gap:34px;font-family:var(--f-label);font-size:12.5px;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.nav__links a{position:relative;padding:8px 0;color:rgba(255,255,255,.78);transition:color .3s}
+.nav__links a::after{content:"";position:absolute;left:0;right:0;bottom:2px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ease)}
+.nav__links a:hover,.nav__links a.active{color:#fff}
+.nav__links a:hover::after,.nav__links a.active::after{transform:scaleX(1);transform-origin:left}
+
+.burger{display:none;width:46px;height:46px;border:0;background:transparent;cursor:pointer;position:relative;margin-right:-10px}
+.burger span{position:absolute;left:12px;right:12px;height:1.5px;background:#fff;transition:transform .45s var(--ease),top .45s var(--ease)}
+.burger span:nth-child(1){top:18px}.burger span:nth-child(2){top:26px}
+.nav-open .burger span:nth-child(1){top:22px;transform:rotate(45deg)}
+.nav-open .burger span:nth-child(2){top:22px;transform:rotate(-45deg)}
+
+.menu{position:fixed;inset:0;z-index:45;background:var(--ink-2);color:#fff;display:flex;flex-direction:column;justify-content:center;padding:calc(var(--nav-h) + 20px) var(--gutter) 40px;
+  clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .85s var(--ease-io),visibility 0s .85s}
+.nav-open .menu{clip-path:inset(0);visibility:visible;transition:clip-path .85s var(--ease-io),visibility 0s}
+.menu nav{display:flex;flex-direction:column;gap:6px}
+.menu nav a{display:flex;align-items:baseline;gap:18px;font-family:var(--f-display);font-size:clamp(38px,10vw,56px);line-height:1.15;opacity:0;translate:0 30px;transition:opacity .6s var(--ease),translate .8s var(--ease)}
+.menu nav a span{font-family:var(--f-label);font-size:12px;letter-spacing:.2em;color:var(--gold)}
+.nav-open .menu nav a{opacity:1;translate:0 0;transition-delay:calc(var(--i)*60ms + 250ms)}
+.menu__foot{margin-top:48px;padding-top:24px;border-top:1px solid var(--hair-d);display:grid;gap:8px;font-size:16px;color:rgba(255,255,255,.7)}
+
+/* =========================================================
+   6. BOTONES
+   Banco de luz dorada en el pie, recortado por el propio botón
+   (adaptación sobria del botón de la referencia).
+   ========================================================= */
+.btn{--mx:0px;--my:0px;position:relative;display:inline-flex;align-items:center;justify-content:center;gap:12px;height:54px;padding:0 28px;border:0;border-radius:4px;
+  font-family:var(--f-label);font-size:12.5px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;white-space:nowrap;cursor:pointer;
+  overflow:hidden;isolation:isolate;transform:translate3d(var(--mx),var(--my),0);
+  transition:transform .55s var(--ease),box-shadow .4s,color .45s var(--ease)}
+.btn--sm{height:44px;padding:0 20px;font-size:11.5px}
+.btn--lg{height:58px;padding:0 32px}
+.btn__t{display:inline-block;overflow:hidden;height:1.25em;line-height:1.25}
+.btn__t>span{display:inline-block;text-shadow:0 1.25em 0 currentColor;transition:transform .6s var(--ease)}
+.btn:hover .btn__t>span{transform:translateY(-1.25em)}
+.btn__a{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.4;transition:transform .55s var(--ease)}
+.btn:hover .btn__a{transform:translateX(4px)}
+
+.btn--gold{color:#fff;
+  background:
+    linear-gradient(to top,rgba(218,205,153,.62) 0,rgba(218,205,153,.36) 2px,rgba(218,205,153,.17) 6px,rgba(218,205,153,.07) 13px,rgba(218,205,153,0) 26px),
+    var(--navy);
+  box-shadow:inset 0 0 0 1px rgba(218,205,153,.36),0 1px 0 rgba(218,205,153,.28),0 14px 30px -16px rgba(0,0,0,.7)}
+.btn--gold::before{content:"";position:absolute;inset:0;z-index:-1;background:var(--gold);transform:scaleY(0);transform-origin:50% 100%;transition:transform .6s var(--ease)}
+.btn--gold::after{content:"";position:absolute;left:24%;right:36%;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(240,230,190,.75),transparent);pointer-events:none}
+.btn--gold:hover{color:var(--ink)}
+.btn--gold:hover::before{transform:scaleY(1)}
+
+.btn--ghost{color:#fff;background:transparent;box-shadow:inset 0 0 0 1px rgba(255,255,255,.26)}
+.btn--ghost:hover{box-shadow:inset 0 0 0 1px var(--gold);color:var(--gold)}
+.btn--line{color:var(--navy);background:transparent;box-shadow:inset 0 0 0 1px rgba(15,43,75,.3)}
+.btn--line:hover{box-shadow:inset 0 0 0 1px var(--navy);background:var(--navy);color:#fff}
+
+/* =========================================================
+   7. HERO
+   ========================================================= */
+.hero{position:relative;min-height:100vh;min-height:max(100svh,640px);display:flex;align-items:center;overflow:hidden;color:#fff;
+  background:radial-gradient(120% 95% at 80% 28%,#143559 0%,#0F2B4B 20%,#0C1B30 50%,#0E0E12 100%)}
+.hero__canvas{position:absolute;inset:0;width:100%;height:100%}
+.hero__veil{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(12,14,20,.82) 0%,rgba(12,14,20,.45) 40%,rgba(12,14,20,0) 68%),
+             linear-gradient(0deg,rgba(14,14,18,.92) 0%,rgba(14,14,18,0) 26%)}
+.hero__in{position:relative;z-index:2;padding-top:calc(var(--nav-h) + 30px);padding-bottom:130px;will-change:transform,opacity}
+.eyebrow{display:flex;align-items:center;gap:14px;font-family:var(--f-label);font-size:12px;font-weight:500;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.eyebrow::before{content:"";width:40px;height:1px;background:var(--gold)}
+.hero__title{font-family:var(--f-display);font-weight:400;font-size:clamp(44px,6.6vw,106px);line-height:.99;letter-spacing:-.02em;margin:30px 0 32px}
+.hero__title .ln{display:block;overflow:hidden;padding-bottom:.07em;margin-bottom:-.07em}
+.hero__title .ln>span{display:inline-block}
+.js .hero__title .ln>span{transform:translateY(112%);transition:transform 1.35s var(--ease);transition-delay:calc(var(--d)*1ms)}
+.loaded .hero__title .ln>span{transform:none}
+.hero__title em{font-family:var(--f-body);font-style:italic;font-weight:300;color:var(--gold);letter-spacing:-.01em}
+.hero__lead{max-width:35em;font-size:clamp(17px,1.35vw,20px);line-height:1.6;color:rgba(255,255,255,.74)}
+.hero__actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+.js .hero [data-intro]{opacity:0;translate:0 22px;transition:opacity 1s var(--ease),translate 1.2s var(--ease);transition-delay:calc(var(--d,0)*1ms)}
+.loaded .hero [data-intro]{opacity:1;translate:0 0}
+
+.hero__foot{position:absolute;left:0;right:0;bottom:30px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:24px}
+.cue{display:flex;align-items:center;gap:14px;font-family:var(--f-label);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.cue__line{position:relative;width:1px;height:48px;background:rgba(255,255,255,.18);overflow:hidden}
+.cue__line::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--gold);animation:cue 2.4s var(--ease-io) infinite}
+@keyframes cue{to{top:100%}}
+.legend{max-width:300px;padding-left:16px;border-left:1px solid rgba(218,205,153,.45)}
+.legend__k{display:block;font-family:var(--f-label);font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.legend p{font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.6)}
+
+/* =========================================================
+   8. LA FIRMA
+   ========================================================= */
+.firm{background:var(--paper);padding:var(--pad) 0}
+.firm__grid{display:grid;grid-template-columns:minmax(220px,.32fr) 1fr;gap:clamp(32px,6vw,96px)}
+.firm__kicker{font-family:var(--f-display);font-weight:400;font-size:22px;line-height:1.3;color:var(--navy);max-width:12em}
+.statement{font-family:var(--f-display);font-size:clamp(28px,3.35vw,50px);line-height:1.2;letter-spacing:-.012em;color:var(--ink)}
+.statement .sw{transition:opacity .25s linear}
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,44px);margin-top:clamp(56px,8vw,96px)}
+.pillar{position:relative;padding-top:26px}
+.pillar::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--hair-l)}
+.pillar::after{content:"";position:absolute;left:0;top:0;width:100%;height:1px;background:var(--navy);transform:scaleX(0);transform-origin:left;transition:transform 1.4s var(--ease) .2s}
+.pillar.in::after{transform:scaleX(.28)}
+.pillar__n{font-family:var(--f-body);font-style:italic;font-size:15px;color:var(--gold-text)}
+.pillar h3{font-family:var(--f-display);font-weight:400;font-size:28px;margin:10px 0 10px;color:var(--navy)}
+.pillar p{font-size:16.5px;line-height:1.6;color:var(--muted)}
+
+/* =========================================================
+   9. TICKER DE PRINCIPIOS
+   ========================================================= */
+.ticker{background:var(--paper);border-block:1px solid var(--hair-l);overflow:hidden;padding:24px 0}
+.ticker__track{display:flex;width:max-content;animation:tick 55s linear infinite}
+.ticker:hover .ticker__track{animation-play-state:paused}
+.ticker__g{display:flex;align-items:center;gap:52px;padding-right:52px;font-family:var(--f-display);font-size:clamp(24px,2.5vw,38px);color:var(--ink);white-space:nowrap}
+.ticker__g em{font-family:var(--f-body);font-weight:300;color:var(--muted)}
+.ticker__g i{display:block;width:30px;height:1px;background:var(--gold-text)}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* =========================================================
+   10. ÁREAS DE PRÁCTICA
+   ========================================================= */
+.areas{position:relative;background:var(--white);padding:var(--pad) 0}
+.areas__head{display:grid;grid-template-columns:1fr minmax(260px,.42fr);align-items:end;gap:40px}
+.areas__intro{font-size:17px;color:var(--muted);max-width:28em}
+.areas__list{list-style:none;padding:0;margin:64px 0 0;border-top:1px solid var(--hair-l)}
+.area{position:relative;border-bottom:1px solid var(--hair-l)}
+.area__row{appearance:none;background:none;border:0;width:100%;text-align:left;cursor:pointer;display:grid;grid-template-columns:76px 1fr 46px;align-items:center;gap:24px;padding:30px 0;position:relative;isolation:isolate;color:var(--ink)}
+.area__row::before{content:"";position:absolute;inset:0 calc(-1 * var(--gutter));z-index:-1;background:var(--paper);transform:scaleY(0);transform-origin:50% 100%;transition:transform .6s var(--ease)}
+.area__row::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--navy);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease)}
+.area__num{font-family:var(--f-display);font-size:16px;color:var(--muted);transition:color .4s,transform .7s var(--ease)}
+.area__title{position:relative;display:block;overflow:hidden;height:1.18em;font-size:clamp(26px,3.3vw,48px);line-height:1.18;letter-spacing:-.01em;transition:transform .8s var(--ease)}
+.area__title span{display:block;white-space:nowrap;transition:transform .75s var(--ease)}
+.area__title .t1{font-family:var(--f-display)}
+.area__title .t2{font-family:var(--f-body);font-style:italic;font-weight:300;color:var(--navy)}
+.area__icon{position:relative;width:46px;height:46px;border-radius:50%;box-shadow:inset 0 0 0 1px var(--hair-l);transition:background .4s,box-shadow .4s}
+.area__icon::before,.area__icon::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:1.2px;margin:-.6px 0 0 -7px;background:currentColor;transition:transform .5s var(--ease)}
+.area__icon::after{transform:rotate(90deg)}
+.area.open .area__icon::after{transform:rotate(0)}
+.area.open .area__icon{background:var(--navy);color:#fff;box-shadow:none}
+
+@media (hover:hover){
+  .area__row:hover::before{transform:scaleY(1)}
+  .area__row:hover::after{transform:scaleX(1)}
+  .area__row:hover .area__num{color:var(--navy);transform:translateX(8px)}
+  .area__row:hover .area__title{transform:translateX(18px)}
+  .area__row:hover .area__title span{transform:translateY(-100%)}
+  .area__row:hover .area__icon{box-shadow:inset 0 0 0 1px var(--navy)}
+}
+.area__row:focus-visible .area__title span{transform:translateY(-100%)}
+
+.area__body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .75s var(--ease)}
+.area.open .area__body{grid-template-rows:1fr}
+.area__body>div{overflow:hidden}
+.area__content{display:grid;grid-template-columns:1fr minmax(240px,.7fr);gap:40px;padding:4px 70px 40px 100px}
+.area__content p{font-size:17.5px;color:var(--muted);max-width:34em}
+.tags{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start}
+.tags li{font-family:var(--f-label);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:40px;box-shadow:inset 0 0 0 1px var(--hair-l);color:var(--navy)}
+.area__link{grid-column:1/-1;display:inline-flex;align-items:center;gap:10px;justify-self:start;font-family:var(--f-label);font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy);padding-bottom:4px;border-bottom:1px solid var(--navy)}
+.area__link svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.4;transition:transform .5s var(--ease)}
+.area__link:hover svg{transform:translateX(4px)}
+
+/* Panel abstracto que sigue al cursor sobre cada área */
+.area-preview{position:fixed;left:0;top:0;width:230px;height:290px;z-index:40;pointer-events:none;opacity:0;scale:.86;transition:opacity .35s var(--ease),scale .5s var(--ease);will-change:transform}
+.area-preview.show{opacity:1;scale:1}
+.area-preview__in{position:relative;width:100%;height:100%;border-radius:6px;overflow:hidden;padding:18px;color:rgba(255,255,255,.78);
+  background:radial-gradient(120% 80% at 80% 0%,#173A62 0%,var(--navy) 45%,var(--navy-3) 100%);box-shadow:0 34px 60px -24px rgba(15,43,75,.6);display:flex;flex-direction:column;justify-content:space-between}
+.area-preview__num{font-family:var(--f-display);font-size:34px;color:var(--gold);line-height:1}
+.area-preview__art{position:absolute;inset:0;width:100%;height:100%}
+.area-preview__art [pathLength]{stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.4s var(--ease) forwards;animation-delay:calc(var(--k)*70ms)}
+.area-preview__art .g{color:var(--gold)}
+.area-preview__art .dot{opacity:0;animation:fadeIn .6s var(--ease) forwards;animation-delay:calc(var(--k)*70ms + 300ms)}
+.area-preview__label{position:relative;font-family:var(--f-label);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#fff}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadeIn{to{opacity:1}}
+
+/* =========================================================
+   11. MÉTODO (sección fijada con progreso por scroll)
+   ========================================================= */
+.method{position:relative;color:#fff;background:linear-gradient(var(--white) 0 50%,#121E2E 50%)}
+.method::before{content:"";position:absolute;inset:0;background:var(--navy);
+  clip-path:inset(0 var(--wi,0%) 0 var(--wi,0%) round var(--wr,0px))}
+.method__pin{position:relative;overflow:hidden;padding:var(--pad) 0}
+.method__in{position:relative;z-index:2}
+.method__top{display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
+.method__count{font-family:var(--f-display);font-size:16px;color:rgba(255,255,255,.5)}
+.method__count b{font-weight:400;font-size:44px;color:var(--gold);margin-right:6px}
+.method__track{position:relative;height:40px;margin:60px 0 34px}
+.method__rail{position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(255,255,255,.14)}
+.method__fill{position:absolute;left:0;right:0;top:50%;height:1px;background:linear-gradient(90deg,rgba(218,205,153,.15),var(--gold));transform-origin:left;transform:scaleX(calc(.125 + var(--p,0) * .75));transition:transform .9s var(--ease)}
+.js .method:not(.in) .method__fill{transform:scaleX(0)}
+/* destello que recorre el riel en bucle: el método "fluye" sin depender del scroll */
+.method__spark{position:absolute;top:50%;left:0;width:90px;height:3px;margin-top:-1.5px;border-radius:3px;background:linear-gradient(90deg,transparent,rgba(240,230,190,.95),transparent);filter:blur(.4px);opacity:0;animation:spark 3.6s var(--ease-io) infinite}
+.method.in .method__spark{opacity:1}
+@keyframes spark{0%{transform:translateX(-90px);opacity:0}12%{opacity:1}88%{opacity:1}100%{transform:translateX(calc(var(--tw,1200px)));opacity:0}}
+.method__node{position:absolute;top:50%;width:13px;height:13px;margin:-6.5px 0 0 -6.5px;border-radius:50%;background:var(--navy);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);transition:background .5s,box-shadow .5s,transform .6s var(--ease)}
+.method__node:nth-child(3){left:12.5%}.method__node:nth-child(4){left:37.5%}.method__node:nth-child(5){left:62.5%}.method__node:nth-child(6){left:87.5%}
+.method__node.on{background:var(--gold);box-shadow:0 0 0 7px rgba(218,205,153,.12);transform:scale(1.1)}
+.method__steps{list-style:none;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:30px}
+.step{position:relative;cursor:default;outline-offset:8px;transition:opacity .8s var(--ease),translate 1s var(--ease)}
+.js .step{opacity:0;translate:0 24px}
+.js .step.shown{opacity:1;translate:0 0}
+.step__n{font-family:var(--f-display);font-size:14px;color:var(--gold)}
+.step h3{font-family:var(--f-display);font-weight:400;font-size:clamp(28px,2.5vw,38px);margin:10px 0 14px;transition:color .5s,transform .7s var(--ease)}
+.step p{font-size:16.5px;line-height:1.6;color:rgba(255,255,255,.58);transition:color .5s}
+.step.is-active h3{color:var(--gold);transform:translateX(6px)}
+.step.is-active p{color:rgba(255,255,255,.86)}
+/* barra de tiempo bajo la etapa activa: indica el avance automático */
+.step__time{display:block;height:1px;margin-top:22px;background:rgba(255,255,255,.12);overflow:hidden}
+.step__time i{display:block;height:100%;background:var(--gold);transform:scaleX(0);transform-origin:left}
+.step.is-active .step__time i{animation:stepTime var(--dwell,4200ms) linear forwards}
+.method.is-paused .step.is-active .step__time i{animation-play-state:paused}
+@keyframes stepTime{to{transform:scaleX(1)}}
+.step__out{display:flex;align-items:center;gap:10px;margin-top:20px;font-family:var(--f-label);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+.step__out::before{content:"";width:18px;height:1px;background:currentColor}
+.method__ghost{position:absolute;left:0;right:0;bottom:-.12em;height:1em;font-family:var(--f-display);font-size:clamp(110px,18vw,290px);line-height:1;pointer-events:none;z-index:1}
+.method__ghost span{position:absolute;right:-.02em;bottom:0;white-space:nowrap;color:transparent;-webkit-text-stroke:1px rgba(218,205,153,.13);opacity:0;translate:0 .2em;transition:opacity .9s var(--ease),translate 1.1s var(--ease)}
+.method__ghost span.on{opacity:1;translate:0 0}
+
+/* =========================================================
+   12. SECTORES (rejilla de puntos reactiva)
+   ========================================================= */
+.sectors{position:relative;color:#fff;padding:var(--pad) 0;overflow:hidden;background:linear-gradient(180deg,var(--navy) 0,#121E2E 240px,var(--ink) 520px)}
+.sectors__grid{position:absolute;left:0;top:0;pointer-events:none}
+.sectors .wrap{position:relative;z-index:1}
+.sectors__head{display:grid;grid-template-columns:1fr minmax(260px,.42fr);align-items:end;gap:40px}
+.sectors__head p{font-size:17px;color:rgba(255,255,255,.62);max-width:28em}
+.sectors__list{list-style:none;padding:0;margin-top:64px;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--hair-d);border-left:1px solid var(--hair-d)}
+.sector{--x:50%;--y:50%;position:relative;min-height:230px;padding:34px 32px;border-right:1px solid var(--hair-d);border-bottom:1px solid var(--hair-d);overflow:hidden;background:rgba(14,14,18,.35)}
+.sector::before{content:"";position:absolute;inset:0;background:radial-gradient(280px circle at var(--x) var(--y),rgba(218,205,153,.13),transparent 65%);opacity:0;transition:opacity .5s}
+.sector::after{content:"";position:absolute;left:0;top:0;width:100%;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
+.sector:hover::before{opacity:1}
+.sector:hover::after{transform:scaleX(1)}
+.sector__n{position:relative;font-family:var(--f-label);font-size:11px;letter-spacing:.24em;color:var(--gold)}
+.sector h3{position:relative;font-family:var(--f-display);font-weight:400;font-size:clamp(24px,2vw,30px);line-height:1.15;margin:44px 0 12px;transition:transform .7s var(--ease)}
+.sector p{position:relative;font-size:15.5px;line-height:1.55;color:rgba(255,255,255,.6)}
+.sector:hover h3{transform:translateX(8px)}
+.commit{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,44px);margin-top:clamp(56px,8vw,96px)}
+.commit__i{padding-top:22px;border-top:1px solid rgba(218,205,153,.4)}
+.commit__i h3{font-family:var(--f-display);font-weight:400;font-size:24px;margin-bottom:8px}
+.commit__i p{font-size:15.5px;color:rgba(255,255,255,.6)}
+
+/* =========================================================
+   13. EQUIPO
+   ========================================================= */
+.team{background:var(--paper);padding:var(--pad) 0}
+.team__head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+.team__head .title{flex:1 1 620px;max-width:18ch}
+.team__head p{font-size:17px;color:var(--muted);max-width:26em}
+.team__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,34px);margin-top:64px}
+.member__card{--rx:0deg;--ry:0deg;--gx:50%;--gy:50%;perspective:900px}
+.member__frame{position:relative;aspect-ratio:4/5;border-radius:6px;overflow:hidden;transform:rotateX(var(--rx)) rotateY(var(--ry));transition:transform .7s var(--ease);
+  background:radial-gradient(120% 90% at 70% 10%,#173A62 0%,var(--navy) 45%,var(--navy-3) 100%)}
+.member__frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.04);transition:filter .8s var(--ease),scale 1.2s var(--ease)}
+.member__card:hover .member__frame img{filter:grayscale(.15);scale:1.04}
+.member__mono{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-display);font-size:clamp(140px,15vw,220px);color:rgba(255,255,255,.07);line-height:1;transition:transform 1.2s var(--ease)}
+.member__card:hover .member__mono{transform:scale(1.06)}
+.member__lines{position:absolute;inset:0;width:100%;height:100%;stroke:rgba(218,205,153,.18);fill:none}
+.member__glare{position:absolute;inset:0;background:radial-gradient(420px circle at var(--gx) var(--gy),rgba(255,255,255,.12),transparent 55%);opacity:0;transition:opacity .5s}
+.member__card:hover .member__glare{opacity:1}
+.member__frame::after{content:"";position:absolute;left:22px;right:22px;bottom:22px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease)}
+.member__card:hover .member__frame::after{transform:scaleX(1)}
+.member__bio{position:absolute;left:0;right:0;bottom:0;padding:24px 22px 40px;color:#fff;font-size:15.5px;line-height:1.55;
+  background:linear-gradient(180deg,rgba(8,24,48,0),rgba(8,24,48,.94) 36%);translate:0 102%;transition:translate .7s var(--ease)}
+.member__card:hover .member__bio,.member__card:focus-within .member__bio{translate:0 0}
+.member h3{font-family:var(--f-display);font-weight:400;font-size:27px;margin-top:20px;color:var(--navy)}
+.member__role{display:block;margin-top:4px;font-family:var(--f-label);font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+@media (hover:none){.member__bio{translate:0 0}}
+
+/* =========================================================
+   14. INSIGHTS
+   ========================================================= */
+/* ---------- TESTIMONIOS: slider destacado + dos cintas en movimiento ---------- */
+.voices{position:relative;color:#fff;padding:var(--pad) 0 calc(var(--pad) * .7);overflow:hidden;
+  background:radial-gradient(70% 60% at 85% 10%,rgba(15,43,75,.85) 0%,rgba(15,43,75,0) 70%),var(--ink)}
+.voices__head{display:grid;grid-template-columns:1fr minmax(260px,.42fr);align-items:end;gap:40px}
+.voices__head p{font-size:17px;color:rgba(255,255,255,.62);max-width:28em}
+.slider{position:relative;margin-top:64px;padding:clamp(32px,4.5vw,64px);border-radius:8px;outline-offset:6px;
+  background:linear-gradient(160deg,rgba(23,58,98,.55),rgba(11,33,64,.35) 55%,rgba(14,14,18,.2));box-shadow:inset 0 0 0 1px var(--hair-d)}
+.slider::before{content:"";position:absolute;left:clamp(32px,4.5vw,64px);right:clamp(32px,4.5vw,64px);top:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);opacity:.7}
+.slider__stage{position:relative;display:grid;min-height:clamp(260px,24vw,320px);touch-action:pan-y;cursor:grab}
+.slider__stage:active{cursor:grabbing}
+.slider__mark{position:absolute;right:0;top:-6px;width:clamp(56px,6vw,84px);fill:var(--gold);opacity:.16;transition:transform 1.2s var(--ease)}
+.slide{grid-area:1/1;display:flex;flex-direction:column;justify-content:space-between;gap:36px;padding-right:clamp(0px,8vw,120px);pointer-events:none}
+.slide.is-current{pointer-events:auto}
+.slide__q{margin:0;font-family:var(--f-display);font-size:clamp(24px,2.7vw,40px);line-height:1.28;letter-spacing:-.01em;max-width:30ch;
+  opacity:0;translate:0 34px;filter:blur(6px);transition:opacity .7s var(--ease),translate 1s var(--ease),filter .8s var(--ease)}
+.slide__who{display:flex;align-items:center;gap:16px;flex-wrap:wrap;opacity:0;translate:0 18px;transition:opacity .7s var(--ease),translate .9s var(--ease)}
+.slide.is-current .slide__q{opacity:1;translate:0 0;filter:none;transition-delay:.12s}
+.slide.is-current .slide__who{opacity:1;translate:0 0;transition-delay:.32s}
+.slide.is-leaving .slide__q{opacity:0;translate:0 calc(var(--out,1) * -26px);filter:blur(4px);transition-duration:.45s}
+.slide.is-leaving .slide__who{opacity:0;transition-duration:.3s}
+.slide__line{width:36px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .9s var(--ease) .45s}
+.slide.is-current .slide__line{transform:none}
+.slide__id{display:flex;flex-direction:column;line-height:1.3}
+.slide__id b{font-family:var(--f-display);font-weight:400;font-size:20px}
+.slide__id em{font-style:normal;font-family:var(--f-label);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:4px}
+.slide__tag{margin-left:auto;font-family:var(--f-label);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);padding:7px 12px;border-radius:40px;box-shadow:inset 0 0 0 1px rgba(218,205,153,.35)}
+.slider__ctrl{display:flex;align-items:center;gap:28px;margin-top:40px;padding-top:26px;border-top:1px solid var(--hair-d)}
+.slider__count{font-family:var(--f-display);font-size:15px;color:rgba(255,255,255,.5);min-width:72px}
+.slider__count b{font-weight:400;font-size:26px;color:var(--gold);margin-right:4px}
+.slider__bars{flex:1;display:flex;gap:8px}
+.slider__bar{flex:1;height:22px;padding:0;border:0;background:none;cursor:pointer;position:relative}
+.slider__bar::before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:rgba(255,255,255,.14);transition:background .3s}
+.slider__bar:hover::before{background:rgba(255,255,255,.3)}
+.slider__bar i{position:absolute;left:0;right:0;top:50%;height:2px;margin-top:-1px;background:var(--gold);transform:scaleX(0);transform-origin:left}
+.slider__bar.is-done i{transform:scaleX(1);opacity:.45}
+.slider__bar.is-current i{animation:barFill var(--slide-time,7000ms) linear forwards}
+.slider.is-paused .slider__bar.is-current i{animation-play-state:paused}
+@keyframes barFill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.slider__nav{display:flex;gap:10px}
+.slider__btn{width:48px;height:48px;border-radius:50%;border:0;background:transparent;color:#fff;cursor:pointer;display:grid;place-items:center;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.22);transition:background .4s,color .4s,box-shadow .4s,transform .5s var(--ease)}
+.slider__btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.4;transition:transform .5s var(--ease)}
+.slider__btn:hover{background:var(--gold);color:var(--ink);box-shadow:none}
+.slider__btn[data-dir="1"]:hover svg{transform:translateX(3px)}
+.slider__btn[data-dir="-1"]:hover svg{transform:translateX(-3px)}
+
+.marquee{margin-top:clamp(56px,7vw,88px);display:grid;gap:18px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+.marquee__row{overflow:hidden}
+.marquee__track{display:flex;width:max-content;animation:marq 70s linear infinite}
+.marquee__row--rev .marquee__track{animation-direction:reverse;animation-duration:82s}
+.marquee__row:hover .marquee__track{animation-play-state:paused}
+.marquee__set{display:flex;gap:18px;padding-right:18px}
+@keyframes marq{to{transform:translateX(-50%)}}
+.review{position:relative;width:340px;flex:0 0 auto;padding:26px 26px 22px;border-radius:6px;background:rgba(255,255,255,.035);box-shadow:inset 0 0 0 1px var(--hair-d);
+  display:flex;flex-direction:column;justify-content:space-between;gap:22px;transition:background .5s,transform .6s var(--ease),box-shadow .5s}
+.review::before{content:"";position:absolute;left:26px;right:26px;top:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
+.review:hover{background:rgba(15,43,75,.55);transform:translateY(-4px);box-shadow:inset 0 0 0 1px rgba(218,205,153,.25)}
+.review:hover::before{transform:scaleX(1)}
+.review p{font-size:16.5px;line-height:1.55;color:rgba(255,255,255,.78)}
+.review footer{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.review b{font-family:var(--f-display);font-weight:400;font-size:17px}
+.review span{font-family:var(--f-label);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold)}
+.voices__note{margin-top:34px;font-family:var(--f-label);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+@media (max-width:900px){
+  .voices__head{grid-template-columns:1fr}
+  .slider__ctrl{flex-wrap:wrap;gap:18px}
+  .slider__bars{order:3;flex-basis:100%}
+  .slider__nav{margin-left:auto}
+  .slide{padding-right:0}
+  .slide__tag{margin-left:0}
+  .review{width:280px}
+}
+@media (max-width:600px){.slider__mark{display:none}.slider{padding:28px 22px}}
+@media (prefers-reduced-motion:reduce){
+  .marquee__track{animation:none}
+  .marquee__row{overflow-x:auto}
+  .slide__q,.slide__who{filter:none;transition:opacity .2s}
+  .slider__bar.is-current i{animation:none;transform:scaleX(1)}
+}
+
+.insights{background:var(--white);padding:var(--pad) 0}
+.insights__head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.4vw,34px);margin-top:64px}
+.post a{display:block}
+.post__art{aspect-ratio:16/10;border-radius:5px;overflow:hidden;background:var(--paper);position:relative}
+.post__art svg{width:100%;height:100%}
+.post__art .ln{stroke:rgba(15,43,75,.26);stroke-width:1.2;transition:transform .9s var(--ease)}
+.post__art .ln.g{stroke:#B6A35F;stroke-width:2}
+.post__art .mk{stroke:var(--navy);fill:var(--paper);stroke-width:1.2;transition:transform 1s var(--ease)}
+.post:hover .post__art .ln:nth-child(odd){transform:translateX(14px)}
+.post:hover .post__art .ln:nth-child(even){transform:translateX(-10px)}
+.post:hover .post__art .mk{transform:translateX(-26px)}
+.post__meta{display:flex;gap:14px;margin-top:22px;font-family:var(--f-label);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.post__meta b{font-weight:500;color:var(--navy)}
+.post h3{font-family:var(--f-display);font-weight:400;font-size:clamp(22px,1.8vw,27px);line-height:1.22;margin:12px 0 10px;color:var(--ink)}
+.post h3 span{background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .7s var(--ease)}
+.post:hover h3 span{background-size:100% 1px}
+.post p{font-size:16px;color:var(--muted)}
+.post__more{display:inline-flex;align-items:center;gap:10px;margin-top:18px;font-family:var(--f-label);font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--navy)}
+.post__more svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.4;transition:transform .5s var(--ease)}
+.post:hover .post__more svg{transform:translateX(5px)}
+
+/* =========================================================
+   15. CONTACTO
+   ========================================================= */
+.contact{position:relative;color:#fff;background:linear-gradient(var(--white) 0 50%,var(--navy-2) 50%);padding:var(--pad) 0;margin-bottom:-1px}
+.contact::before{content:"";position:absolute;inset:0;background:radial-gradient(90% 70% at 85% 0%,#163760 0%,var(--navy) 45%,var(--navy-2) 100%);
+  clip-path:inset(0 var(--wi,0%) 0 var(--wi,0%) round var(--wr,0px))}
+.contact .wrap{position:relative}
+.contact__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,110px)}
+.contact__lead{font-size:18px;color:rgba(255,255,255,.7);max-width:28em;margin-top:24px}
+.channels{list-style:none;padding:0;margin-top:48px;border-top:1px solid var(--hair-d)}
+.channels a{position:relative;display:grid;grid-template-columns:120px 1fr 20px;align-items:center;gap:16px;padding:20px 0;border-bottom:1px solid var(--hair-d)}
+.channels a::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
+.channels a:hover::after{transform:scaleX(1)}
+.channels .k{font-family:var(--f-label);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.channels .v{font-family:var(--f-display);font-size:clamp(19px,1.7vw,24px);transition:transform .7s var(--ease),color .4s;overflow-wrap:anywhere}
+.channels a:hover .v{transform:translateX(8px);color:var(--gold)}
+.channels svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.4;opacity:.6}
+
+.form{padding:clamp(28px,3.4vw,46px);border-radius:6px;background:rgba(8,24,48,.45);box-shadow:inset 0 0 0 1px var(--hair-d);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+.form__row{display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
+.field{position:relative;margin-bottom:24px}
+.field input,.field select,.field textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.24);border-radius:0;color:#fff;font-family:var(--f-body);font-size:18px;padding:24px 0 10px;outline:none;appearance:none;-webkit-appearance:none}
+.field textarea{resize:vertical;min-height:110px;line-height:1.5}
+.field select{cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,rgba(255,255,255,.7) 50%),linear-gradient(135deg,rgba(255,255,255,.7) 50%,transparent 50%);background-position:calc(100% - 12px) 32px,calc(100% - 7px) 32px;background-size:5px 5px;background-repeat:no-repeat}
+.field option{color:var(--ink)}
+.field label{position:absolute;left:0;top:26px;font-size:17px;color:rgba(255,255,255,.55);pointer-events:none;transform-origin:left top;transition:transform .5s var(--ease),color .4s}
+.field input:focus+label,.field input:not(:placeholder-shown)+label,
+.field textarea:focus+label,.field textarea:not(:placeholder-shown)+label,
+.field select+label{transform:translateY(-22px) scale(.72);color:var(--gold)}
+.field__bar{position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease)}
+.field :focus~.field__bar{transform:scaleX(1)}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:14.5px;line-height:1.5;color:rgba(255,255,255,.65);margin:6px 0 28px}
+.consent input{margin-top:4px;width:16px;height:16px;flex:0 0 auto;accent-color:var(--gold)}
+.consent a{text-decoration:underline;text-underline-offset:3px}
+.form__note{min-height:1.5em;margin-top:16px;font-size:14.5px;color:var(--gold)}
+
+/* =========================================================
+   16. PIE
+   ========================================================= */
+.foot{position:relative;color:#fff;background:linear-gradient(180deg,var(--navy-2) 0,var(--ink) 220px);padding:90px 0 34px;overflow:hidden}
+.foot__top{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:40px;padding-bottom:56px;border-bottom:1px solid var(--hair-d)}
+.foot__top p{margin-top:20px;font-size:15.5px;color:rgba(255,255,255,.55);max-width:22em}
+.foot h4{font-family:var(--f-label);font-weight:500;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.foot ul{list-style:none;padding:0;display:grid;gap:10px;font-size:16px;color:rgba(255,255,255,.75)}
+.foot ul a{transition:color .3s}
+.foot ul a:hover{color:var(--gold)}
+.foot__mega{--f:0%;margin:40px 0 28px;font-family:var(--f-display);font-size:clamp(58px,14.6vw,236px);line-height:.9;letter-spacing:-.035em;white-space:nowrap;
+  color:transparent;background:linear-gradient(90deg,rgba(189,189,189,.55) 0 var(--f),rgba(255,255,255,.05) var(--f) 100%);-webkit-background-clip:text;background-clip:text}
+.foot__base{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--f-label);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+
+/* WhatsApp */
+.wa{position:fixed;right:20px;bottom:20px;z-index:44;display:flex;align-items:center;flex-direction:row-reverse;gap:10px;transition:opacity .8s var(--ease) 1.3s,scale .8s var(--ease) 1.3s}
+.js .wa{opacity:0;scale:.8}
+.loaded .wa{opacity:1;scale:1}
+.wa__b{position:relative;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--ink);box-shadow:inset 0 0 0 1px rgba(218,205,153,.45),0 12px 28px -10px rgba(0,0,0,.6);transition:transform .5s var(--ease),background .4s}
+.wa__b svg{width:26px;height:26px;fill:#fff}
+.wa__b::after{content:"";position:absolute;inset:0;border-radius:50%;border:1px solid rgba(218,205,153,.5);animation:pulse 3s var(--ease) infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}70%{transform:scale(1.45);opacity:0}100%{opacity:0}}
+.wa__t{font-family:var(--f-label);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#fff;background:var(--ink);padding:10px 14px;border-radius:4px;box-shadow:inset 0 0 0 1px var(--hair-d);opacity:0;translate:10px 0;transition:opacity .4s,translate .5s var(--ease);pointer-events:none}
+.wa:hover .wa__b{transform:scale(1.06);background:var(--navy)}
+.wa:hover .wa__t{opacity:1;translate:0 0}
+
+/* =========================================================
+   17. RESPONSIVE
+   ========================================================= */
+@media (max-width:1080px){
+  .nav__links{display:none}
+  .burger{display:block}
+}
+@media (max-width:900px){
+  :root{--nav-h:68px}
+  .firm__grid,.areas__head,.sectors__head,.contact__grid{grid-template-columns:1fr}
+  .pillars,.commit{grid-template-columns:1fr;gap:28px}
+  .area__row{grid-template-columns:40px 1fr 40px;gap:14px;padding:24px 0}
+  .area__icon{width:40px;height:40px}
+  .area__content{grid-template-columns:1fr;gap:20px;padding:0 0 32px 54px}
+  .method__track{display:none}
+  .method__top{flex-direction:column;align-items:flex-start}
+  .method__count{display:none}
+  .method__steps{grid-template-columns:1fr;gap:0}
+  .step{padding:0 0 40px 30px}
+  .step::before{content:"";position:absolute;left:5px;top:8px;bottom:0;width:1px;background:rgba(255,255,255,.14)}
+  .step::after{content:"";position:absolute;left:0;top:4px;width:11px;height:11px;border-radius:50%;background:var(--navy);box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);transition:background .5s,box-shadow .5s}
+  .step.on::after{background:var(--gold);box-shadow:0 0 0 6px rgba(218,205,153,.12)}
+  .step:last-child::before{display:none}
+  .sectors__list{grid-template-columns:1fr 1fr}
+  .team__grid{grid-template-columns:1fr 1fr}
+  .posts{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(270px,80%);overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;margin-right:calc(-1 * var(--gutter));padding-right:var(--gutter)}
+  .post{scroll-snap-align:start}
+  .foot__top{grid-template-columns:1fr 1fr}
+  .foot__top>div:first-child{grid-column:1/-1}
+  .legend{display:none}
+}
+@media (max-width:760px){
+  .hero{align-items:flex-end}
+  .hero__veil{background:linear-gradient(0deg,rgba(12,14,20,.95) 0%,rgba(12,14,20,.72) 48%,rgba(12,14,20,.1) 78%)}
+  .hero__in{padding-bottom:110px}
+  .hero__title{margin:22px 0 22px}
+  .hero__actions{margin-top:30px}
+  .hero__actions .btn{flex:1 1 auto}
+}
+@media (max-width:600px){
+  body{font-size:17px}
+  .eyebrow{letter-spacing:.2em;font-size:11px}
+  .foot{padding-bottom:96px}
+  .nav__cta{display:none}
+  .brand__name{font-size:19px}
+  .sectors__list,.team__grid,.form__row{grid-template-columns:1fr}
+  .sector{min-height:0}
+  .sector h3{margin-top:22px}
+  .channels a{grid-template-columns:1fr 20px;gap:4px 12px}
+  .channels .k{grid-column:1/-1}
+  .foot__top{grid-template-columns:1fr}
+  .area__title{height:auto}
+  .area__title span{white-space:normal}
+  .area__title .t2{display:none}
+}
+@media (hover:none){
+  .area__title{height:auto}
+  .area__title .t2{display:none}
+  .area__title span{white-space:normal}
+}
+
+/* =========================================================
+   18. MOVIMIENTO REDUCIDO
+   ========================================================= */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .curtain{display:none!important}
+  .js [data-r],.js .hero [data-intro],.step,.menu nav a{opacity:1!important;translate:none!important;transition:none!important}
+  .js .split .w>span,.js .hero__title .ln>span{transform:none!important;transition:none!important}
+  .ticker__track,.cue__line::after,.wa__b::after{animation:none}
+  .js .nav,.js .wa{opacity:1;scale:1}
+  .area-preview{display:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+
+<!-- Isologo: recreación provisional de la columna jónica del brandbook.
+     Reemplazar por el vector oficial (SVG) del logotipo antes de publicar:
+     el manual prohíbe reemplazar el símbolo. -->
+<svg class="defs" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="silver" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/><stop offset=".45" stop-color="#D5D9DE"/>
+      <stop offset=".78" stop-color="#9CA3AB"/><stop offset="1" stop-color="#E9EBEE"/>
+    </linearGradient>
+    <symbol id="mark" viewBox="0 0 64 64">
+      <rect width="64" height="64" fill="#0F2B4B"/>
+      <g fill="url(#silver)">
+        <rect x="13" y="11.5" width="38" height="3.6" rx="1.8"/>
+        <path d="M21 25.4h3.2V47H21zM26.6 25.4h3.2v25.2h-3.2zM34.2 25.4h3.2v25.2h-3.2zM39.8 25.4h3.2V47h-3.2z"/>
+        <path d="M30.4 25.4h3.2v27.2L32 56l-1.6-3.4z"/>
+        <path d="M22.6 35.6l2 2.6-2 2.6-2-2.6zM41.4 35.6l2 2.6-2 2.6-2-2.6z"/>
+        <circle cx="19.2" cy="20.4" r="1.3"/><circle cx="44.8" cy="20.4" r="1.3"/>
+      </g>
+      <path d="M15 20.4a4.2 4.2 0 1 1 4.2 4.2h25.6a4.2 4.2 0 1 1 4.2-4.2" fill="none" stroke="url(#silver)" stroke-width="2.2" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="curtain" aria-hidden="true">
+  <div class="curtain__in">
+    <svg class="curtain__mark" viewBox="0 0 64 64"><use href="#mark"/></svg>
+    <span class="curtain__rule"></span>
+    <span class="curtain__t">Serna-Rincón · Abogados</span>
+  </div>
+</div>
+
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap nav__in">
+    <a class="brand" href="#inicio" aria-label="Serna-Rincón Abogados, ir al inicio">
+      <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>
+      <span class="brand__type" aria-hidden="true">
+        <span class="brand__name">Serna-Rincón</span><span class="brand__rule"></span><span class="brand__sub">Abogados</span>
+      </span>
+    </a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#firma">Firma</a><a href="#areas">Áreas</a><a href="#metodo">Método</a><a href="#equipo">Equipo</a><a href="#insights">Insights</a>
+    </nav>
+    <a class="btn btn--gold btn--sm magnetic nav__cta" href="#contacto"><span class="btn__t"><span>Hable con nosotros</span></span></a>
+    <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="menu" id="menu" aria-hidden="true" inert>
+  <nav aria-label="Menú">
+    <a href="#firma" style="--i:0"><span>01</span>Firma</a>
+    <a href="#areas" style="--i:1"><span>02</span>Áreas</a>
+    <a href="#metodo" style="--i:2"><span>03</span>Método</a>
+    <a href="#equipo" style="--i:3"><span>04</span>Equipo</a>
+    <a href="#insights" style="--i:4"><span>05</span>Insights</a>
+    <a href="#contacto" style="--i:5"><span>06</span>Contacto</a>
+  </nav>
+  <div class="menu__foot">
+    <a href="tel:+573156099876">+57 315 609 9876</a>
+    <a href="mailto:sernarincon@gmail.com">sernarincon@gmail.com</a>
+  </div>
+</div>
+
+<main id="contenido">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero dark" id="inicio" aria-labelledby="hero-t">
+    <canvas class="hero__canvas" aria-hidden="true"></canvas>
+    <div class="hero__veil" aria-hidden="true"></div>
+    <div class="wrap hero__in">
+      <p class="eyebrow" data-intro style="--d:150">Firma de abogados · Colombia</p>
+      <h1 class="hero__title" id="hero-t">
+        <span class="ln"><span style="--d:260">Estrategia jurídica</span></span>
+        <span class="ln"><span style="--d:380">para las decisiones</span></span>
+        <span class="ln"><span style="--d:500">que <em>importan.</em></span></span>
+      </h1>
+      <p class="hero__lead" data-intro style="--d:760">Asesoramos a empresas y personas con un método propio: analizamos cada asunto como un sistema de normas, hechos y riesgos, y diseñamos la ruta jurídica más sólida antes de actuar.</p>
+      <div class="hero__actions" data-intro style="--d:880">
+        <a class="btn btn--gold btn--lg magnetic" href="#contacto"><span class="btn__t"><span>Hable con nosotros</span></span><svg class="btn__a" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+        <a class="btn btn--ghost btn--lg magnetic" href="#firma"><span class="btn__t"><span>Conozca la firma</span></span></a>
+      </div>
+    </div>
+    <div class="wrap hero__foot" data-intro style="--d:1050">
+      <a class="cue" href="#firma"><span class="cue__line"></span><span>Desplácese</span></a>
+      <div class="legend">
+        <span class="legend__k">Sistema de conexiones</span>
+        <p>Norma, hecho, contrato, decisión. Cada asunto es una red; nuestro trabajo es leerla completa.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 01 LA FIRMA ============ -->
+  <section class="firm" id="firma" aria-labelledby="firma-t">
+    <div class="wrap firm__grid">
+      <div>
+        <div class="sec-head"><span class="n">01</span><i></i><span>La firma</span></div>
+        <h2 id="firma-t" class="firm__kicker" data-r>Precisión, criterio y anticipación.</h2>
+      </div>
+      <div>
+        <p class="statement">Entendemos el derecho como una herramienta estratégica. Estudiamos cada asunto como un sistema de normas, hechos y decisiones, y construimos la ruta jurídica más sólida para proteger aquello que nuestros clientes no pueden arriesgar.</p>
+        <div class="pillars">
+          <article class="pillar" data-r style="--d:0">
+            <span class="pillar__n">i.</span><h3>Criterio</h3>
+            <p>Cada recomendación parte de un análisis riguroso de la ley, la jurisprudencia y los hechos del caso.</p>
+          </article>
+          <article class="pillar" data-r style="--d:120">
+            <span class="pillar__n">ii.</span><h3>Anticipación</h3>
+            <p>Identificamos riesgos y escenarios antes de que se conviertan en conflictos.</p>
+          </article>
+          <article class="pillar" data-r style="--d:240">
+            <span class="pillar__n">iii.</span><h3>Cercanía</h3>
+            <p>Trato directo con el abogado a cargo, en lenguaje claro y con información oportuna sobre cada etapa.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="ticker__track">
+      <div class="ticker__g"><span>Precisión</span><i></i><em>Estrategia</em><i></i><span>Anticipación</span><i></i><em>Confidencialidad</em><i></i><span>Rigor</span><i></i><em>Criterio</em><i></i></div>
+      <div class="ticker__g"><span>Precisión</span><i></i><em>Estrategia</em><i></i><span>Anticipación</span><i></i><em>Confidencialidad</em><i></i><span>Rigor</span><i></i><em>Criterio</em><i></i></div>
+    </div>
+  </div>
+
+  <!-- ============ 02 ÁREAS ============ -->
+  <!-- Áreas de ejemplo: confirmar con la firma cuáles presta realmente. -->
+  <section class="areas" id="areas" aria-labelledby="areas-t">
+    <div class="wrap">
+      <div class="sec-head"><span class="n">02</span><i></i><span>Áreas de práctica</span></div>
+      <div class="areas__head">
+        <h2 id="areas-t" class="title split">Donde el derecho se convierte en estrategia.</h2>
+        <p class="areas__intro" data-r>Seis áreas, un mismo método. Seleccione un área para conocer el alcance de nuestro acompañamiento.</p>
+      </div>
+      <ul class="areas__list">
+        <li class="area" data-r>
+          <button class="area__row" type="button" aria-expanded="false" aria-controls="ad-1" data-short="Corporativo">
+            <span class="area__num">01</span>
+            <span class="area__title"><span class="t1">Corporativo y societario</span><span class="t2" aria-hidden="true">Corporativo y societario</span></span>
+            <span class="area__icon" aria-hidden="true"></span>
+          </button>
+          <div class="area__body" id="ad-1"><div><div class="area__content">
+            <p>Constitución y reorganización de sociedades, gobierno corporativo, acuerdos de accionistas y acompañamiento en operaciones empresariales.</p>
+            <ul class="tags"><li>Sociedades</li><li>Gobierno corporativo</li><li>Acuerdos de accionistas</li><li>Reorganizaciones</li></ul>
+            <a class="area__link" href="#contacto" data-pick="Corporativo y societario">Consultar sobre esta área<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+          </div></div></div>
+        </li>
+        <li class="area" data-r>
+          <button class="area__row" type="button" aria-expanded="false" aria-controls="ad-2" data-short="Contratos">
+            <span class="area__num">02</span>
+            <span class="area__title"><span class="t1">Contratos y negociación</span><span class="t2" aria-hidden="true">Contratos y negociación</span></span>
+            <span class="area__icon" aria-hidden="true"></span>
+          </button>
+          <div class="area__body" id="ad-2"><div><div class="area__content">
+            <p>Estructuración, revisión y negociación de contratos civiles y comerciales, con un enfoque preventivo que reduce el riesgo de controversias.</p>
+            <ul class="tags"><li>Contratos comerciales</li><li>Revisión de riesgos</li><li>Negociación</li><li>Cláusulas críticas</li></ul>
+            <a class="area__link" href="#contacto" data-pick="Contratos y negociación">Consultar sobre esta área<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+          </div></div></div>
+        </li>
+        <li class="area" data-r>
+          <button class="area__row" type="button" aria-expanded="false" aria-controls="ad-3" data-short="Litigio">
+            <span class="area__num">03</span>
+            <span class="area__title"><span class="t1">Litigio y conflictos</span><span class="t2" aria-hidden="true">Litigio y conflictos</span></span>
+            <span class="area__icon" aria-hidden="true"></span>
+          </button>
+          <div class="area__body" id="ad-3"><div><div class="area__content">
+            <p>Representación en procesos civiles, comerciales y arbitrales, con una estrategia procesal definida desde la primera actuación.</p>
+            <ul class="tags"><li>Procesos declarativos</li><li>Procesos ejecutivos</li><li>Arbitraje</li><li>Conciliación</li></ul>
+            <a class="area__link" href="#contacto" data-pick="Litigio y conflictos">Consultar sobre esta área<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+          </div></div></div>
+        </li>
+        <li class="area" data-r>
+          <button class="area__row" type="button" aria-expanded="false" aria-controls="ad-4" data-short="Laboral">
+            <span class="area__num">04</span>
+            <span class="area__title"><span class="t1">Laboral y seguridad social</span><span class="t2" aria-hidden="true">Laboral y seguridad social</span></span>
+            <span class="area__icon" aria-hidden="true"></span>
+          </button>
+          <div class="area__body" id="ad-4"><div><div class="area__content">
+            <p>Asesoría preventiva a empleadores y trabajadores, auditorías de cumplimiento, procesos disciplinarios internos y litigio laboral.</p>
+            <ul class="tags"><li>Contratación laboral</li><li>Auditoría de cumplimiento</li><li>Seguridad social</li><li>Litigio laboral</li></ul>
+            <a class="area__link" href="#contacto" data-pick="Laboral y seguridad social">Consultar sobre esta área<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+          </div></div></div>
+        </li>
+        <li class="area" data-r>
+          <button class="area__row" type="button" aria-expanded="false" aria-controls="ad-5" data-short="Sector público">
+            <span class="area__num">05</span>
+            <span class="area__title"><span class="t1">Contratación estatal</span><span class="t2" aria-hidden="true">Contratación estatal</span></span>
+            <span class="area__icon" aria-hidden="true"></span>
+          </button>
+          <div class="area__body" id="ad-5"><div><div class="area__content">
+            <p>Acompañamiento a proponentes y contratistas en procesos de selección, ejecución, liquidación y controversias con entidades públicas.</p>
+            <ul class="tags"><li>Procesos de selección</li><li>Observaciones</li><li>Ejecución</li><li>Liquidación</li></ul>
+            <a class="area__link" href="#contacto" data-pick="Contratación estatal">Consultar sobre esta área<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+          </div></div></div>
+        </li>
+        <li class="area" data-r>
+          <button class="area__row" type="button" aria-expanded="false" aria-controls="ad-6" data-short="Familia">
+            <span class="area__num">06</span>
+            <span class="area__title"><span class="t1">Familia y sucesiones</span><span class="t2" aria-hidden="true">Familia y sucesiones</span></span>
+            <span class="area__icon" aria-hidden="true"></span>
+          </button>
+          <div class="area__body" id="ad-6"><div><div class="area__content">
+            <p>Sucesiones notariales y judiciales, liquidación de sociedades conyugales y patrimoniales, y planeación patrimonial familiar.</p>
+            <ul class="tags"><li>Sucesiones</li><li>Sociedad conyugal</li><li>Planeación patrimonial</li><li>Acuerdos familiares</li></ul>
+            <a class="area__link" href="#contacto" data-pick="Familia y sucesiones">Consultar sobre esta área<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+          </div></div></div>
+        </li>
+      </ul>
+    </div>
+    <div class="area-preview" aria-hidden="true">
+      <div class="area-preview__in">
+        <svg class="area-preview__art" viewBox="0 0 200 250" preserveAspectRatio="xMidYMid meet"></svg>
+        <span class="area-preview__num">01</span>
+        <span class="area-preview__label">Corporativo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 MÉTODO ============ -->
+  <section class="method dark" id="metodo" aria-labelledby="metodo-t">
+    <div class="method__pin">
+      <div class="wrap method__in">
+        <div class="sec-head"><span class="n">03</span><i></i><span>Nuestra forma de trabajar</span></div>
+        <div class="method__top">
+          <h2 id="metodo-t" class="title split">No solo asesoramos. Diseñamos la ruta.</h2>
+          <p class="method__count" aria-hidden="true"><b>01</b>/ 04</p>
+        </div>
+        <div class="method__track" aria-hidden="true">
+          <span class="method__rail"></span><span class="method__fill"></span>
+          <span class="method__node"></span><span class="method__node"></span><span class="method__node"></span><span class="method__node"></span>
+          <span class="method__spark"></span>
+        </div>
+        <ol class="method__steps">
+          <li class="step" tabindex="0">
+            <span class="step__n">01</span><h3>Analizamos</h3>
+            <p>Estudiamos los hechos, los documentos, las normas y los precedentes aplicables. Entendemos el problema antes de proponer una respuesta.</p>
+            <span class="step__out">Diagnóstico jurídico</span>
+            <span class="step__time" aria-hidden="true"><i></i></span>
+          </li>
+          <li class="step" tabindex="0">
+            <span class="step__n">02</span><h3>Diseñamos</h3>
+            <p>Construimos la estrategia: alternativas, costos, tiempos y riesgos de cada ruta, para que usted decida con información completa.</p>
+            <span class="step__out">Mapa de estrategia</span>
+            <span class="step__time" aria-hidden="true"><i></i></span>
+          </li>
+          <li class="step" tabindex="0">
+            <span class="step__n">03</span><h3>Anticipamos</h3>
+            <p>Proyectamos los escenarios posibles, incluida la reacción de la contraparte, y preparamos una respuesta para cada uno.</p>
+            <span class="step__out">Matriz de escenarios</span>
+            <span class="step__time" aria-hidden="true"><i></i></span>
+          </li>
+          <li class="step" tabindex="0">
+            <span class="step__n">04</span><h3>Actuamos</h3>
+            <p>Ejecutamos con precisión: escritos, negociaciones, audiencias y seguimiento constante hasta el cierre del asunto.</p>
+            <span class="step__out">Ejecución y seguimiento</span>
+            <span class="step__time" aria-hidden="true"><i></i></span>
+          </li>
+        </ol>
+      </div>
+      <div class="method__ghost" aria-hidden="true"><span>Analizamos</span><span>Diseñamos</span><span>Anticipamos</span><span>Actuamos</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 04 EXPERIENCIA / SECTORES ============ -->
+  <section class="sectors dark" id="experiencia" aria-labelledby="sect-t">
+    <canvas class="sectors__grid" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <div class="sec-head"><span class="n">04</span><i></i><span>Experiencia</span></div>
+      <div class="sectors__head">
+        <h2 id="sect-t" class="title split">Criterio construido donde cada decisión cuenta.</h2>
+        <p data-r>Acompañamos a clientes en sectores con alta exigencia regulatoria y contractual, donde un error de forma o de estrategia tiene consecuencias reales.</p>
+      </div>
+      <ul class="sectors__list">
+        <li class="sector" data-r style="--d:0"><span class="sector__n">/01</span><h3>Construcción e infraestructura</h3><p>Contratos de obra, interventoría y reclamaciones contractuales.</p></li>
+        <li class="sector" data-r style="--d:80"><span class="sector__n">/02</span><h3>Contratistas del Estado</h3><p>Procesos de selección, ejecución y controversias con entidades públicas.</p></li>
+        <li class="sector" data-r style="--d:160"><span class="sector__n">/03</span><h3>Empresas familiares</h3><p>Gobierno corporativo, sucesión empresarial y protección del patrimonio.</p></li>
+        <li class="sector" data-r style="--d:0"><span class="sector__n">/04</span><h3>Inmobiliario</h3><p>Compraventas, arrendamientos, saneamiento de títulos y procesos de pertenencia.</p></li>
+        <li class="sector" data-r style="--d:80"><span class="sector__n">/05</span><h3>Comercio y servicios</h3><p>Contratación comercial, relaciones laborales y recuperación de cartera.</p></li>
+        <li class="sector" data-r style="--d:160"><span class="sector__n">/06</span><h3>Personas y patrimonio</h3><p>Sucesiones, asuntos de familia y defensa de derechos.</p></li>
+      </ul>
+      <!-- Compromisos de servicio: confirmar con la firma antes de publicar. -->
+      <div class="commit">
+        <div class="commit__i" data-r><h3>Un abogado responsable</h3><p>Cada asunto tiene un abogado a cargo, identificable y disponible.</p></div>
+        <div class="commit__i" data-r style="--d:120"><h3>Información en cada etapa</h3><p>Reportes claros sobre decisiones, plazos y riesgos.</p></div>
+        <div class="commit__i" data-r style="--d:240"><h3>Honorarios por escrito</h3><p>Alcance y honorarios definidos desde el inicio.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 05 EQUIPO ============ -->
+  <!-- Para usar fotografías reales: dentro de .member__frame agregue
+       <img src="equipo/nombre.jpg" alt="Nombre Apellido, socio fundador" loading="lazy">
+       y elimine .member__mono y .member__lines. Recomendado: retrato 4:5, fondo neutro, luz lateral. -->
+  <section class="team" id="equipo" aria-labelledby="equipo-t">
+    <div class="wrap">
+      <div class="sec-head"><span class="n">05</span><i></i><span>Equipo</span></div>
+      <div class="team__head">
+        <h2 id="equipo-t" class="title split">Abogados que piensan en el siguiente movimiento.</h2>
+        <p data-r>Socios involucrados personalmente en cada asunto, con el respaldo de un equipo que trabaja bajo un mismo método.</p>
+      </div>
+      <div class="team__grid">
+        <article class="member" data-r style="--d:0">
+          <div class="member__card" tabindex="0">
+            <div class="member__frame">
+              <img src="equipo/luis-fernando-serna.webp" alt="Luis Fernando Serna Martines, socio fundador" width="1024" height="1536" loading="lazy" decoding="async" style="object-position:50% 18%">
+              <span class="member__glare"></span>
+              <p class="member__bio">[Formación académica · áreas de práctica · experiencia relevante del socio.]</p>
+            </div>
+          </div>
+          <h3>Luis Fernando Serna Martines</h3><span class="member__role">Socio fundador</span>
+        </article>
+        <article class="member" data-r style="--d:120">
+          <div class="member__card" tabindex="0">
+            <div class="member__frame">
+              <img src="equipo/cristian-camilo-rincon.webp" alt="Cristian Camilo Rincón Barbosa, socio fundador" width="941" height="1672" loading="lazy" decoding="async" style="object-position:50% 14%">
+              <span class="member__glare"></span>
+              <p class="member__bio">[Formación académica · áreas de práctica · experiencia relevante del socio.]</p>
+            </div>
+          </div>
+          <h3>Cristian Camilo Rincón Barbosa</h3><span class="member__role">Socio fundador</span>
+        </article>
+        <article class="member" data-r style="--d:240">
+          <div class="member__card" tabindex="0">
+            <div class="member__frame">
+              <img src="equipo/equipo-asociado.webp" alt="Equipo asociado de Serna-Rincón Abogados" width="1024" height="1536" loading="lazy" decoding="async" style="object-position:50% 40%">
+              <span class="member__glare"></span>
+              <p class="member__bio">Abogados y practicantes que trabajan bajo la dirección de los socios en investigación, redacción y seguimiento procesal.</p>
+            </div>
+          </div>
+          <h3>Equipo asociado</h3><span class="member__role">Abogados y practicantes</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 TESTIMONIOS ============
+       CONTENIDO PENDIENTE: los textos entre corchetes son guías de lo que debe ir.
+       Publique solo testimonios reales, con autorización escrita de cada cliente
+       (Ley 1581 de 2012) y sin revelar información amparada por el secreto profesional. -->
+  <section class="voices dark" id="testimonios" aria-labelledby="voc-t">
+    <div class="wrap">
+      <div class="sec-head"><span class="n">06</span><i></i><span>Testimonios</span></div>
+      <div class="voices__head">
+        <h2 id="voc-t" class="title split">La confianza se construye caso a caso.</h2>
+        <p data-r>Lo que dicen quienes ya tomaron decisiones importantes con nuestro acompañamiento.</p>
+      </div>
+
+      <div class="slider" data-r tabindex="0" role="region" aria-roledescription="carrusel" aria-label="Testimonios destacados">
+        <div class="slider__stage">
+          <svg class="slider__mark" viewBox="0 0 48 36" aria-hidden="true"><path d="M0 36V21.6C0 9.6 6.4 2.4 19.2 0l2 4.4C13.6 6.6 10 10.8 9.6 16.8H19.2V36H0Zm26.8 0V21.6C26.8 9.6 33.2 2.4 46 0l2 4.4c-7.6 2.2-11.2 6.4-11.6 12.4H46V36H26.8Z"/></svg>
+          <figure class="slide is-current" aria-roledescription="diapositiva" aria-label="1 de 6">
+            <blockquote class="slide__q">[Testimonio de un cliente corporativo: la situación que enfrentaba su empresa, cómo lo acompañó la firma y qué resultado obtuvo. Dos o tres frases, en sus propias palabras.]</blockquote>
+            <figcaption class="slide__who"><span class="slide__line"></span><span class="slide__id"><b>[Nombre del cliente]</b><em>[Cargo · Empresa]</em></span><span class="slide__tag">Corporativo</span></figcaption>
+          </figure>
+          <figure class="slide" aria-roledescription="diapositiva" aria-label="2 de 6" aria-hidden="true">
+            <blockquote class="slide__q">[Testimonio sobre la negociación o revisión de un contrato: qué riesgo se identificó a tiempo y qué cambió para el cliente gracias a ello.]</blockquote>
+            <figcaption class="slide__who"><span class="slide__line"></span><span class="slide__id"><b>[Nombre del cliente]</b><em>[Cargo · Empresa]</em></span><span class="slide__tag">Contratos</span></figcaption>
+          </figure>
+          <figure class="slide" aria-roledescription="diapositiva" aria-label="3 de 6" aria-hidden="true">
+            <blockquote class="slide__q">[Testimonio de un cliente en un proceso judicial o arbitral: cómo vivió el acompañamiento y qué tan clara fue la estrategia desde el inicio.]</blockquote>
+            <figcaption class="slide__who"><span class="slide__line"></span><span class="slide__id"><b>[Nombre del cliente]</b><em>[Ciudad]</em></span><span class="slide__tag">Litigio</span></figcaption>
+          </figure>
+          <figure class="slide" aria-roledescription="diapositiva" aria-label="4 de 6" aria-hidden="true">
+            <blockquote class="slide__q">[Testimonio de un empleador o de un trabajador sobre la asesoría laboral recibida y su resultado.]</blockquote>
+            <figcaption class="slide__who"><span class="slide__line"></span><span class="slide__id"><b>[Nombre del cliente]</b><em>[Cargo · Empresa]</em></span><span class="slide__tag">Laboral</span></figcaption>
+          </figure>
+          <figure class="slide" aria-roledescription="diapositiva" aria-label="5 de 6" aria-hidden="true">
+            <blockquote class="slide__q">[Testimonio de un proponente o contratista del Estado sobre el acompañamiento en el proceso de selección, la ejecución o la liquidación del contrato.]</blockquote>
+            <figcaption class="slide__who"><span class="slide__line"></span><span class="slide__id"><b>[Nombre del cliente]</b><em>[Cargo · Empresa]</em></span><span class="slide__tag">Contratación estatal</span></figcaption>
+          </figure>
+          <figure class="slide" aria-roledescription="diapositiva" aria-label="6 de 6" aria-hidden="true">
+            <blockquote class="slide__q">[Testimonio de una familia sobre el trámite de sucesión: tiempos, trato recibido y tranquilidad durante el proceso.]</blockquote>
+            <figcaption class="slide__who"><span class="slide__line"></span><span class="slide__id"><b>[Nombre del cliente]</b><em>[Ciudad]</em></span><span class="slide__tag">Sucesiones</span></figcaption>
+          </figure>
+        </div>
+        <div class="slider__ctrl">
+          <p class="slider__count" aria-live="polite"><b>01</b> / 06</p>
+          <div class="slider__bars">
+            <button type="button" class="slider__bar is-current" aria-label="Testimonio 1"><i></i></button>
+            <button type="button" class="slider__bar" aria-label="Testimonio 2"><i></i></button>
+            <button type="button" class="slider__bar" aria-label="Testimonio 3"><i></i></button>
+            <button type="button" class="slider__bar" aria-label="Testimonio 4"><i></i></button>
+            <button type="button" class="slider__bar" aria-label="Testimonio 5"><i></i></button>
+            <button type="button" class="slider__bar" aria-label="Testimonio 6"><i></i></button>
+          </div>
+          <div class="slider__nav">
+            <button type="button" class="slider__btn" data-dir="-1" aria-label="Testimonio anterior"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M14 8H3M7 4 3 8l4 4"/></svg></button>
+            <button type="button" class="slider__btn" data-dir="1" aria-label="Testimonio siguiente"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="marquee" aria-label="Más reseñas de clientes">
+      <div class="marquee__row">
+        <div class="marquee__track">
+          <div class="marquee__set">
+            <article class="review"><p>[Reseña breve sobre la claridad con que se explicó el caso.]</p><footer><b>[Nombre]</b><span>Corporativo</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre la rapidez de respuesta a sus consultas.]</p><footer><b>[Nombre]</b><span>Contratos</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre el trato del abogado a cargo.]</p><footer><b>[Nombre]</b><span>Familia</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre la preparación de la audiencia.]</p><footer><b>[Nombre]</b><span>Litigio</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre los honorarios definidos por escrito desde el inicio.]</p><footer><b>[Nombre]</b><span>Laboral</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre el seguimiento del proceso.]</p><footer><b>[Nombre]</b><span>Contratación estatal</span></footer></article>
+          </div>
+          <div class="marquee__set" aria-hidden="true">
+            <article class="review"><p>[Reseña breve sobre la claridad con que se explicó el caso.]</p><footer><b>[Nombre]</b><span>Corporativo</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre la rapidez de respuesta a sus consultas.]</p><footer><b>[Nombre]</b><span>Contratos</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre el trato del abogado a cargo.]</p><footer><b>[Nombre]</b><span>Familia</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre la preparación de la audiencia.]</p><footer><b>[Nombre]</b><span>Litigio</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre los honorarios definidos por escrito desde el inicio.]</p><footer><b>[Nombre]</b><span>Laboral</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre el seguimiento del proceso.]</p><footer><b>[Nombre]</b><span>Contratación estatal</span></footer></article>
+          </div>
+        </div>
+      </div>
+      <div class="marquee__row marquee__row--rev">
+        <div class="marquee__track">
+          <div class="marquee__set">
+            <article class="review"><p>[Reseña breve sobre cómo se anticiparon los riesgos.]</p><footer><b>[Nombre]</b><span>Contratos</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre la información recibida en cada etapa.]</p><footer><b>[Nombre]</b><span>Sucesiones</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre el resultado obtenido.]</p><footer><b>[Nombre]</b><span>Litigio</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre la disponibilidad del equipo.]</p><footer><b>[Nombre]</b><span>Corporativo</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre por qué recomendaría la firma.]</p><footer><b>[Nombre]</b><span>Laboral</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre la confianza que generó el acompañamiento.]</p><footer><b>[Nombre]</b><span>Familia</span></footer></article>
+          </div>
+          <div class="marquee__set" aria-hidden="true">
+            <article class="review"><p>[Reseña breve sobre cómo se anticiparon los riesgos.]</p><footer><b>[Nombre]</b><span>Contratos</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre la información recibida en cada etapa.]</p><footer><b>[Nombre]</b><span>Sucesiones</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre el resultado obtenido.]</p><footer><b>[Nombre]</b><span>Litigio</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre la disponibilidad del equipo.]</p><footer><b>[Nombre]</b><span>Corporativo</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre por qué recomendaría la firma.]</p><footer><b>[Nombre]</b><span>Laboral</span></footer></article>
+            <article class="review"><p>[Reseña breve sobre la confianza que generó el acompañamiento.]</p><footer><b>[Nombre]</b><span>Familia</span></footer></article>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="wrap voices__note" data-r>Los testimonios se publican con autorización expresa de cada cliente.</p>
+  </section>
+
+  <!-- ============ 07 INSIGHTS ============ -->
+  <!-- Publicaciones de ejemplo: enlazar a artículos reales cuando existan. -->
+  <section class="insights" id="insights" aria-labelledby="ins-t">
+    <div class="wrap">
+      <div class="sec-head"><span class="n">07</span><i></i><span>Insights</span></div>
+      <div class="insights__head">
+        <h2 id="ins-t" class="title split">Análisis jurídico para decidir con información.</h2>
+        <a class="btn btn--line magnetic" href="#"><span class="btn__t"><span>Ver publicaciones</span></span><svg class="btn__a" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+      </div>
+      <div class="posts">
+        <article class="post" data-r style="--d:0"><a href="#">
+          <figure class="post__art"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg></figure>
+          <div class="post__meta"><b>Contratos</b><span>Lectura · 6 min</span></div>
+          <h3><span>Lo que el contrato no dice: riesgos en las cláusulas de terminación</span></h3>
+          <p>Cómo revisar los supuestos de terminación anticipada antes de firmar y qué consecuencias prever.</p>
+          <span class="post__more">Leer análisis<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span>
+        </a></article>
+        <article class="post" data-r style="--d:120"><a href="#">
+          <figure class="post__art"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg></figure>
+          <div class="post__meta"><b>Contratación estatal</b><span>Lectura · 8 min</span></div>
+          <h3><span>Antes de presentar la oferta: revisiones que evitan un rechazo</span></h3>
+          <p>Una lista de verificación práctica para proponentes en procesos de selección con entidades públicas.</p>
+          <span class="post__more">Leer análisis<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span>
+        </a></article>
+        <article class="post" data-r style="--d:240"><a href="#">
+          <figure class="post__art"><svg viewBox="0 0 320 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg></figure>
+          <div class="post__meta"><b>Sucesiones</b><span>Lectura · 5 min</span></div>
+          <h3><span>Sucesión notarial o judicial: criterios para elegir la vía</span></h3>
+          <p>Cuándo es posible acudir a notaría, cuándo no, y qué implica cada camino en tiempos y costos.</p>
+          <span class="post__more">Leer análisis<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span>
+        </a></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 08 CONTACTO ============ -->
+  <section class="contact dark" id="contacto" aria-labelledby="contacto-t">
+    <div class="wrap contact__grid">
+      <div>
+        <div class="sec-head"><span class="n">08</span><i></i><span>Contacto</span></div>
+        <h2 id="contacto-t" class="title split">Hablemos de lo que está en juego.</h2>
+        <p class="contact__lead" data-r>Cuéntenos su situación. Un abogado de la firma revisará su consulta y le responderá personalmente.</p>
+        <ul class="channels" data-r style="--d:120">
+          <li><a href="tel:+573156099876"><span class="k">Teléfono</span><span class="v">+57 315 609 9876</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></li>
+          <li><a href="https://wa.me/573156099876?text=Hola%2C%20quisiera%20hacer%20una%20consulta%20jur%C3%ADdica." target="_blank" rel="noopener"><span class="k">WhatsApp</span><span class="v">Escribir ahora</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></li>
+          <li><a href="mailto:sernarincon@gmail.com"><span class="k">Correo</span><span class="v">sernarincon@gmail.com</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></li>
+          <li><a href="https://www.instagram.com/sernarinconabogados/" target="_blank" rel="noopener"><span class="k">Instagram</span><span class="v">@sernarinconabogados</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></li>
+        </ul>
+      </div>
+
+      <!-- El formulario arma un correo con mailto:. Para recibir los mensajes sin depender
+           del cliente de correo del visitante, conéctelo a un servicio (p. ej. Formspree)
+           cambiando el atributo action y eliminando el preventDefault del script. -->
+      <form class="form" id="contact-form" novalidate data-r style="--d:200">
+        <div class="form__row">
+          <div class="field"><input id="f-nombre" name="nombre" type="text" autocomplete="name" placeholder=" " required><label for="f-nombre">Nombre completo</label><span class="field__bar"></span></div>
+          <div class="field"><input id="f-tel" name="telefono" type="tel" autocomplete="tel" placeholder=" "><label for="f-tel">Teléfono</label><span class="field__bar"></span></div>
+        </div>
+        <div class="field"><input id="f-correo" name="correo" type="email" autocomplete="email" placeholder=" " required><label for="f-correo">Correo electrónico</label><span class="field__bar"></span></div>
+        <div class="field">
+          <select id="f-area" name="area">
+            <option value="">Seleccione un área (opcional)</option>
+            <option>Corporativo y societario</option><option>Contratos y negociación</option><option>Litigio y conflictos</option>
+            <option>Laboral y seguridad social</option><option>Contratación estatal</option><option>Familia y sucesiones</option><option>Otro asunto</option>
+          </select><label for="f-area">Área de interés</label><span class="field__bar"></span>
+        </div>
+        <div class="field"><textarea id="f-msg" name="mensaje" rows="3" placeholder=" " required></textarea><label for="f-msg">Describa brevemente su caso</label><span class="field__bar"></span></div>
+        <label class="consent"><input type="checkbox" name="autorizacion" required><span>Autorizo el tratamiento de mis datos personales conforme a la Ley 1581 de 2012 y a la <a href="politica-de-tratamiento-de-datos.html">Política de tratamiento de datos</a> de la firma.</span></label>
+        <button class="btn btn--gold btn--lg magnetic" type="submit"><span class="btn__t"><span>Enviar consulta</span></span><svg class="btn__a" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></button>
+        <p class="form__note" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="foot dark">
+  <div class="wrap">
+    <div class="foot__top">
+      <div>
+        <a class="brand" href="#inicio" aria-label="Serna-Rincón Abogados, ir al inicio">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>
+          <span class="brand__type" aria-hidden="true"><span class="brand__name">Serna-Rincón</span><span class="brand__rule"></span><span class="brand__sub">Abogados</span></span>
+        </a>
+        <p>Estrategia jurídica para las decisiones que importan.</p>
+      </div>
+      <div>
+        <h4>Firma</h4>
+        <ul><li><a href="#firma">La firma</a></li><li><a href="#areas">Áreas de práctica</a></li><li><a href="#metodo">Método</a></li><li><a href="#equipo">Equipo</a></li><li><a href="#testimonios">Testimonios</a></li><li><a href="#insights">Insights</a></li></ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul><li><a href="tel:+573156099876">+57 315 609 9876</a></li><li><a href="mailto:sernarincon@gmail.com">sernarincon@gmail.com</a></li><li><a href="https://www.instagram.com/sernarinconabogados/" target="_blank" rel="noopener">@sernarinconabogados</a></li></ul>
+      </div>
+    </div>
+    <div class="foot__mega" aria-hidden="true">Serna-Rincón</div>
+    <div class="foot__base">
+      <span>© <span data-year>2026</span> Serna-Rincón Abogados</span>
+      <a href="politica-de-tratamiento-de-datos.html">Política de tratamiento de datos</a>
+      <span>El contenido de este sitio no constituye asesoría jurídica.</span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/573156099876?text=Hola%2C%20quisiera%20hacer%20una%20consulta%20jur%C3%ADdica." target="_blank" rel="noopener" aria-label="Escribir por WhatsApp">
+  <span class="wa__b"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.02 3C8.84 3 3 8.83 3 16c0 2.3.6 4.53 1.75 6.5L3 29l6.68-1.74A13 13 0 0 0 16.02 29C23.2 29 29 23.17 29 16S23.2 3 16.02 3Zm0 23.8c-2 0-3.95-.54-5.65-1.55l-.4-.24-3.96 1.03 1.06-3.86-.26-.4A10.77 10.77 0 0 1 5.2 16c0-5.96 4.86-10.8 10.82-10.8 5.96 0 10.8 4.84 10.8 10.8 0 5.96-4.84 10.8-10.8 10.8Zm5.93-8.09c-.33-.16-1.94-.96-2.24-1.07-.3-.11-.52-.16-.74.17-.22.32-.85 1.06-1.04 1.28-.19.22-.38.25-.71.08-.33-.16-1.38-.51-2.63-1.62-.97-.87-1.63-1.94-1.82-2.27-.19-.33-.02-.5.14-.67.15-.15.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.71 0 1.6 1.17 3.15 1.33 3.37.16.22 2.3 3.51 5.57 4.92.78.34 1.39.54 1.86.69.78.25 1.5.21 2.06.13.63-.09 1.94-.79 2.21-1.56.27-.77.27-1.43.19-1.56-.08-.14-.3-.22-.63-.38Z"/></svg></span>
+  <span class="wa__t">Escríbanos</span>
+</a>
+
+<script>
+(() => {
+  'use strict';
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+  const root = document.documentElement;
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const FINE = matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  let vw = innerWidth, vh = innerHeight;
+
+  /* ---------- 1. Entrada: la cortina se levanta cuando cargan las fuentes ---------- */
+  (function intro() {
+    const curtain = $('.curtain');
+    const finish = () => {
+      root.classList.add('loaded');
+      if (curtain) setTimeout(() => curtain.remove(), 1500);
+    };
+    if (RM) { finish(); return; }
+    const fonts = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+    Promise.race([fonts, new Promise(r => setTimeout(r, 1600))])
+      .then(() => setTimeout(finish, Math.max(0, 1250 - performance.now())));
+  })();
+
+  /* ---------- 2. Títulos que se revelan palabra por palabra ---------- */
+  $$('.split').forEach(el => {
+    const text = el.textContent.trim().replace(/\s+/g, ' ');
+    const words = text.split(' ').map((w, i) =>
+      `<span class="w"><span style="--i:${i}">${esc(w)}</span></span>`).join(' ');
+    el.innerHTML = `<span class="sr">${esc(text)}</span><span aria-hidden="true">${words}</span>`;
+  });
+
+  /* Declaración de la firma: cada palabra se ilumina según el avance del scroll */
+  const statement = $('.statement');
+  let sWords = [];
+  if (statement) {
+    const text = statement.textContent.trim().replace(/\s+/g, ' ');
+    statement.innerHTML = `<span class="sr">${esc(text)}</span><span aria-hidden="true">${
+      text.split(' ').map(w => `<span class="sw">${esc(w)}</span>`).join(' ')}</span>`;
+    sWords = $$('.sw', statement);
+  }
+
+  /* ---------- 3. Revelado por intersección ---------- */
+  const revealables = $$('[data-r], .split, .sec-head');
+  if (RM || !('IntersectionObserver' in window)) {
+    revealables.forEach(el => el.classList.add('in'));
+  } else {
+    const io = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    }), { rootMargin: '0px 0px -10% 0px', threshold: 0.01 });
+    revealables.forEach(el => io.observe(el));
+  }
+
+  /* ---------- 4. Navegación ---------- */
+  const nav = $('.nav'), burger = $('.burger'), menu = $('#menu');
+  let lastY = scrollY;
+  function navUpdate(y) {
+    nav.classList.toggle('is-solid', y > 24);
+    if (Math.abs(y - lastY) > 6) {
+      nav.classList.toggle('is-hidden', y > lastY && y > vh * 0.6 && !root.classList.contains('nav-open'));
+      lastY = y;
+    }
+  }
+  function setMenu(open) {
+    root.classList.toggle('nav-open', open);
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    menu.setAttribute('aria-hidden', String(!open));
+    menu.inert = !open;
+    if (open) nav.classList.remove('is-hidden');
+  }
+  burger.addEventListener('click', () => setMenu(!root.classList.contains('nav-open')));
+  $$('a', menu).forEach(a => a.addEventListener('click', () => setMenu(false)));
+  addEventListener('keydown', e => {
+    if (e.key === 'Escape' && root.classList.contains('nav-open')) { setMenu(false); burger.focus(); }
+  });
+
+  // Enlace activo según la sección visible
+  const linkMap = new Map($$('.nav__links a').map(a => [a.getAttribute('href').slice(1), a]));
+  if ('IntersectionObserver' in window) {
+    const secIO = new IntersectionObserver(es => es.forEach(e => {
+      if (!e.isIntersecting) return;
+      linkMap.forEach(a => a.classList.remove('active'));
+      const a = linkMap.get(e.target.id); if (a) a.classList.add('active');
+    }), { rootMargin: '-45% 0px -50% 0px' });
+    linkMap.forEach((a, id) => { const s = document.getElementById(id); if (s) secIO.observe(s); });
+  }
+
+  /* ---------- 5. Bucle de scroll (un solo rAF por evento) ---------- */
+  const bar = $('.progress'), heroIn = $('.hero__in'), heroCv = $('.hero__canvas');
+  const method = $('.method'), steps = $$('.step'), mNodes = $$('.method__node'),
+        ghosts = $$('.method__ghost span'), mCount = $('.method__count b');
+  const wipes = $$('.method, .contact');
+  const mega = $('.foot__mega');
+  let ticking = false;
+
+  /* Método: ya no depende del scroll. Al entrar en pantalla las cuatro etapas
+     aparecen en cascada (≈1,4 s) y luego el sistema avanza solo de una etapa a
+     la siguiente; la barra bajo la etapa activa marca el tiempo. Pasar el cursor
+     o enfocar una etapa la fija; al salir, el avance automático continúa. */
+  (function methodSystem() {
+    if (!method || !steps.length) return;
+    const DWELL = 4200;
+    const track = $('.method__track');
+    let active = -1, timer = 0, revealed = false, visible = false, hovering = false;
+    method.style.setProperty('--dwell', DWELL + 'ms');
+
+    const setTrackWidth = () => { if (track) method.style.setProperty('--tw', track.offsetWidth + 'px'); };
+    setTrackWidth(); addEventListener('resize', setTrackWidth);
+
+    function setStep(i) {
+      active = i;
+      method.style.setProperty('--p', (i / 3).toFixed(4));
+      steps.forEach((s, k) => {
+        s.classList.toggle('on', k <= i);
+        // reiniciar la animación de la barra de tiempo de la etapa activa
+        if (k === i) { s.classList.remove('is-active'); void s.offsetWidth; s.classList.add('is-active'); }
+        else s.classList.remove('is-active');
+      });
+      mNodes.forEach((n, k) => n.classList.toggle('on', k <= i));
+      ghosts.forEach((g, k) => g.classList.toggle('on', k === i));
+      if (mCount) mCount.textContent = String(i + 1).padStart(2, '0');
+    }
+    function schedule() {
+      clearTimeout(timer);
+      if (RM || hovering || !visible) return;
+      timer = setTimeout(() => { setStep((active + 1) % 4); schedule(); }, DWELL);
+    }
+    function reveal() {
+      revealed = true;
+      method.classList.add('in');
+      if (RM) { steps.forEach(s => s.classList.add('shown')); setStep(3); return; }
+      steps.forEach((s, k) => setTimeout(() => {
+        s.classList.add('shown');
+        mNodes[k] && mNodes[k].classList.add('on');
+        method.style.setProperty('--p', (k / 3).toFixed(4));
+      }, 150 + k * 320));
+      setTimeout(() => { setStep(0); schedule(); }, 150 + 4 * 320);
+    }
+    steps.forEach((s, k) => {
+      const pick = () => { if (!revealed) return; hovering = true; method.classList.add('is-paused'); clearTimeout(timer); if (active !== k) setStep(k); };
+      const release = () => { hovering = false; method.classList.remove('is-paused'); schedule(); };
+      s.addEventListener('pointerenter', pick);
+      s.addEventListener('pointerleave', release);
+      s.addEventListener('focus', pick);
+      s.addEventListener('blur', release);
+      s.addEventListener('click', pick);
+    });
+    if (!('IntersectionObserver' in window)) { visible = true; reveal(); return; }
+    new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting;
+      if (visible && !revealed) reveal();
+      else if (revealed) { method.classList.toggle('is-paused', !visible || hovering); schedule(); }
+    }, { threshold: 0, rootMargin: '0px 0px -35% 0px' }).observe(method);
+  })();
+
+  // Transición cinematográfica: el fondo de la sección "se abre" hacia los bordes
+  function wipeUpdate() {
+    wipes.forEach(w => {
+      if (RM || vw < 760) { w.style.setProperty('--wi', '0%'); w.style.setProperty('--wr', '0px'); return; }
+      const r = w.getBoundingClientRect();
+      if (r.top > vh || r.bottom < 0) return;
+      const q = clamp((vh - r.top) / (vh * 0.7));
+      const e = 1 - Math.pow(1 - q, 3);
+      w.style.setProperty('--wi', ((1 - e) * 4.5).toFixed(2) + '%');
+      w.style.setProperty('--wr', ((1 - e) * 28).toFixed(1) + 'px');
+    });
+  }
+
+  function frame() {
+    ticking = false;
+    const y = scrollY;
+    const max = root.scrollHeight - vh;
+    bar.style.transform = `scaleX(${max > 0 ? (y / max).toFixed(4) : 0})`;
+    navUpdate(y);
+
+    if (!RM) {
+      // Salida del hero: el contenido sube más lento que el scroll y se desvanece
+      if (y < vh * 1.3) {
+        const hp = clamp(y / (vh * 0.9));
+        heroIn.style.transform = `translate3d(0,${(-hp * 70).toFixed(1)}px,0)`;
+        heroIn.style.opacity = (1 - hp * 1.15).toFixed(3);
+        heroCv.style.opacity = (1 - hp * 0.55).toFixed(3);
+      }
+      if (sWords.length) {
+        const r = statement.getBoundingClientRect();
+        if (r.top < vh && r.bottom > 0) {
+          const p = clamp((vh * 0.88 - r.top) / (r.height + vh * 0.3));
+          const n = sWords.length, f = p * (n + 6);
+          for (let i = 0; i < n; i++) {
+            const v = (0.14 + clamp((f - i) / 4) * 0.86).toFixed(2);
+            if (sWords[i]._o !== v) { sWords[i].style.opacity = v; sWords[i]._o = v; }
+          }
+        }
+      }
+      if (mega) {
+        const r = mega.getBoundingClientRect();
+        mega.style.setProperty('--f', (clamp((vh - r.top) / (vh * 0.75)) * 100).toFixed(1) + '%');
+      }
+    }
+    wipeUpdate();
+  }
+  const req = () => { if (!ticking) { ticking = true; requestAnimationFrame(frame); } };
+  addEventListener('scroll', req, { passive: true });
+  addEventListener('resize', () => { vw = innerWidth; vh = innerHeight; req(); });
+  frame();
+
+  /* ---------- 6. Hero: sistema de líneas y conexiones jurídicas ----------
+     Un haz de líneas nace estrecho a la izquierda (detrás del texto, donde
+     casi no se ve) y se abre hacia la derecha como un flujo de información.
+     Sobre él viajan nodos —norma, hecho, contrato...— unidos por enlaces
+     por los que circulan pulsos. El cursor desplaza las líneas como una
+     lente y "consulta" los nodos cercanos. */
+  (function heroField() {
+    const cv = heroCv; if (!cv || !cv.getContext) return;
+    const ctx = cv.getContext('2d');
+    const hero = $('.hero');
+    let W = 0, H = 0, mobile = false, lines = [], nodes = [], links = [], dust = [];
+    let ox = 0, oy = 0, ey = 0, fan = 0, gW = null, gG = null, t = 0, last = 0, raf = 0, visible = true;
+    const ptr = { x: 0, y: 0, tx: 0, ty: 0, a: 0, ta: 0 };
+    const DEF = [
+      { l: .22, x: .70, t: 'Norma' }, { l: .47, x: .70, t: 'Hecho' }, { l: .30, x: .83, t: 'Contrato' },
+      { l: .80, x: .80, t: 'Persona' }, { l: .24, x: .95, t: 'Prueba' }, { l: .66, x: .93, t: 'Riesgo' },
+      { l: .42, x: .89, t: 'Decisión', key: true }
+    ];
+    const LINKS = [[0, 1], [1, 6], [2, 6], [6, 5], [3, 5], [2, 4], [0, 2], [1, 3], [4, 6]];
+
+    function build() {
+      const r = cv.getBoundingClientRect(); W = r.width; H = r.height;
+      if (!W || !H) return;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      mobile = W < 760;
+      ox = mobile ? -W * .2 : W * .02;   // punto de origen del haz
+      oy = mobile ? H * .62 : H * .9;
+      ey = mobile ? H * .17 : H * .40;    // centro del haz en el borde derecho
+      fan = mobile ? H * .30 : H * .78;  // apertura máxima del haz
+      const n = mobile ? 11 : 17;
+      lines = Array.from({ length: n }, (_, i) => ({
+        u: i / (n - 1) - .5, ph: Math.random() * Math.PI * 2, sp: .22 + Math.random() * .16,
+        gold: i === Math.round((n - 1) * .42),
+        al: .09 + (1 - Math.abs(i / (n - 1) - .5) * 2) * .2
+      }));
+      nodes = DEF.map(d => ({
+        li: Math.round(d.l * (n - 1)), fx: mobile ? .4 + (d.x - .7) * 2.2 : d.x,
+        t: d.t.toUpperCase(), key: !!d.key, ph: Math.random() * 6.28, x: 0, y: 0, h: 0
+      }));
+      links = LINKS.map(([a, b]) => ({ a, b, p: Math.random(), s: .05 + Math.random() * .07 }));
+      dust = Array.from({ length: mobile ? 18 : 42 }, () => ({
+        x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * 6, vy: -2 - Math.random() * 5,
+        r: .5 + Math.random() * .9, a: .08 + Math.random() * .22
+      }));
+      gW = ctx.createLinearGradient(0, 0, W, 0);
+      gW.addColorStop(0, 'rgba(200,206,216,0)'); gW.addColorStop(mobile ? .15 : .3, 'rgba(200,206,216,1)'); gW.addColorStop(1, 'rgba(200,206,216,.7)');
+      gG = ctx.createLinearGradient(0, 0, W, 0);
+      gG.addColorStop(0, 'rgba(218,205,153,0)'); gG.addColorStop(.35, 'rgba(218,205,153,1)'); gG.addColorStop(1, 'rgba(218,205,153,.8)');
+    }
+
+    function yAt(L, x) {
+      const s = clamp((x - ox) / (W - ox));
+      const e = s * s * (3 - 2 * s);                       // smoothstep
+      let y = lerp(oy, ey, e) + L.u * lerp(3, fan, Math.pow(s, 1.15));
+      y += Math.sin(x * .0042 + t * L.sp + L.ph) * 16 * e + Math.sin(x * .0013 - t * .12 + L.u * 3) * 26 * e;
+      if (ptr.a > .01) {                                    // lente del cursor
+        const dx = x - ptr.x, dy = y - ptr.y;
+        y += Math.exp(-(dx * dx + dy * dy) / 22500) * 52 * ptr.a * (dy / (Math.abs(dy) + 24));
+      }
+      return y;
+    }
+
+    function draw(dt) {
+      ctx.clearRect(0, 0, W, H);
+      const step = mobile ? 12 : 14, x0 = Math.max(0, ox);
+      for (const L of lines) {
+        ctx.beginPath();
+        for (let x = x0; x <= W + step; x += step) {
+          const y = yAt(L, x);
+          if (x === x0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = L.gold ? gG : gW; ctx.globalAlpha = L.gold ? .55 : L.al; ctx.lineWidth = L.gold ? 1.1 : .8;
+        ctx.stroke();
+      }
+      for (const N of nodes) {
+        N.x = W * (N.fx + Math.sin(t * .12 + N.ph) * .008);
+        N.y = Math.max(yAt(lines[N.li], N.x), mobile ? 70 : 118);
+        const d = Math.hypot(N.x - ptr.x, N.y - ptr.y);
+        N.h = lerp(N.h, ptr.a > .05 && d < 190 ? 1 - d / 190 : 0, .12);
+      }
+      ctx.lineWidth = .7; ctx.strokeStyle = '#DACD99'; ctx.fillStyle = '#F3EBC8';
+      for (const K of links) {
+        const A = nodes[K.a], B = nodes[K.b];
+        ctx.globalAlpha = .15 + Math.max(A.h, B.h) * .4;
+        ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y); ctx.stroke();
+        K.p = (K.p + K.s * dt) % 1;
+        const px = lerp(A.x, B.x, K.p), py = lerp(A.y, B.y, K.p), fade = Math.sin(K.p * Math.PI);
+        ctx.globalAlpha = .9 * fade; ctx.beginPath(); ctx.arc(px, py, 1.4, 0, 6.283); ctx.fill();
+        ctx.globalAlpha = .22 * fade; ctx.beginPath(); ctx.arc(px, py, 4, 0, 6.283); ctx.fill();
+      }
+      if (ptr.a > .02) {
+        ctx.setLineDash([2, 4]); ctx.lineWidth = .7; ctx.strokeStyle = '#DACD99';
+        for (const N of nodes) if (N.h > .01) {
+          ctx.globalAlpha = N.h * .5 * ptr.a;
+          ctx.beginPath(); ctx.moveTo(ptr.x, ptr.y); ctx.lineTo(N.x, N.y); ctx.stroke();
+        }
+        ctx.setLineDash([]);
+        ctx.globalAlpha = .32 * ptr.a; ctx.strokeStyle = '#FFFFFF'; ctx.lineWidth = .6;
+        ctx.beginPath(); ctx.arc(ptr.x, ptr.y, 16, 0, 6.283);
+        ctx.moveTo(ptr.x - 25, ptr.y); ctx.lineTo(ptr.x - 19, ptr.y);
+        ctx.moveTo(ptr.x + 19, ptr.y); ctx.lineTo(ptr.x + 25, ptr.y);
+        ctx.moveTo(ptr.x, ptr.y - 25); ctx.lineTo(ptr.x, ptr.y - 19);
+        ctx.moveTo(ptr.x, ptr.y + 19); ctx.lineTo(ptr.x, ptr.y + 25);
+        ctx.stroke();
+      }
+      ctx.font = '500 10px Jost, sans-serif';
+      if ('letterSpacing' in ctx) ctx.letterSpacing = '2px';
+      nodes.forEach((N, i) => {
+        const showLabel = !mobile || N.key;
+        const pulse = N.key ? (Math.sin(t * 1.6) + 1) / 2 : 0;
+        ctx.globalAlpha = 1; ctx.fillStyle = N.key ? '#DACD99' : '#E9ECF1';
+        ctx.beginPath(); ctx.arc(N.x, N.y, N.key ? 3.2 : 2.2, 0, 6.283); ctx.fill();
+        ctx.globalAlpha = .26 + N.h * .5; ctx.strokeStyle = N.key ? '#DACD99' : '#FFFFFF'; ctx.lineWidth = .7;
+        ctx.beginPath(); ctx.arc(N.x, N.y, 7 + N.h * 6 + pulse * 4, 0, 6.283); ctx.stroke();
+        const label = String(i + 1).padStart(2, '0') + '  ' + N.t;
+        const w = ctx.measureText(label).width, right = N.x + 13 + w > W - 10;
+        if (!showLabel) return;
+        ctx.globalAlpha = .38 + N.h * .62; ctx.fillStyle = N.key ? '#DACD99' : '#C9CED6';
+        ctx.fillText(label, right ? N.x - 13 - w : N.x + 13, N.y - 11);
+      });
+      ctx.fillStyle = '#FFFFFF';
+      for (const P of dust) {
+        P.x += P.vx * dt; P.y += P.vy * dt;
+        if (P.y < -5) { P.y = H + 5; P.x = Math.random() * W; }
+        if (P.x < -5) P.x = W + 5; else if (P.x > W + 5) P.x = -5;
+        ctx.globalAlpha = P.a; ctx.fillRect(P.x, P.y, P.r, P.r);
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function tick(now) {
+      raf = 0;
+      if (!visible) return;
+      const dt = last ? Math.min((now - last) / 1000, .05) : .016;
+      last = now; t += dt;
+      ptr.x = lerp(ptr.x, ptr.tx, .1); ptr.y = lerp(ptr.y, ptr.ty, .1); ptr.a = lerp(ptr.a, ptr.ta, .06);
+      draw(dt);
+      raf = requestAnimationFrame(tick);
+    }
+    const start = () => { if (!raf && !RM) { last = 0; raf = requestAnimationFrame(tick); } };
+
+    hero.addEventListener('pointermove', e => {
+      if (e.pointerType !== 'mouse') return;
+      const r = cv.getBoundingClientRect();
+      ptr.tx = e.clientX - r.left; ptr.ty = e.clientY - r.top;
+      if (ptr.ta === 0) { ptr.x = ptr.tx; ptr.y = ptr.ty; }
+      ptr.ta = 1;
+    });
+    hero.addEventListener('pointerleave', () => { ptr.ta = 0; });
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) start(); }).observe(hero);
+    }
+    let rt;
+    addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(() => { build(); if (RM) draw(0); }, 150); });
+    build();
+    if (RM) { t = 4; draw(0); } else start();
+  })();
+
+  /* ---------- 7. Áreas: acordeón + panel abstracto que sigue al cursor ---------- */
+  $$('.area').forEach(area => {
+    const btn = $('.area__row', area);
+    btn.addEventListener('click', () => {
+      const open = !area.classList.contains('open');
+      $$('.area.open').forEach(a => { if (a !== area) { a.classList.remove('open'); $('.area__row', a).setAttribute('aria-expanded', 'false'); } });
+      area.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  });
+
+  const S = 'fill="none" stroke="currentColor" pathLength="1"';
+  const ART = [
+    () => { let s = ''; for (let k = 0; k < 6; k++) { const w = 130 - k * 18; s += `<rect ${S} ${k === 3 ? 'class="g"' : ''} x="${100 - w / 2}" y="${125 - w / 2}" width="${w}" height="${w}" transform="rotate(${k * 9} 100 125)" style="--k:${k}"/>`; } return s; },
+    () => { let s = ''; const L = [120, 140, 96, 134, 150, 110, 128, 80]; L.forEach((w, k) => { s += `<path ${S} d="M30 ${50 + k * 14}h${w}" style="--k:${k}"/>`; }); return s + `<path ${S} class="g" d="M40 200c18-26 30-30 32-14s-6 22 6 8 22-30 34-14 6 18 22 6 26-12 36-6" style="--k:9"/><path ${S} d="M30 218h140" style="--k:10"/>`; },
+    () => `<path ${S} d="M30 125C60 60 140 60 170 125" style="--k:0"/><path ${S} d="M30 125C60 190 140 190 170 125" style="--k:1"/><path ${S} d="M52 125C74 88 126 88 148 125" style="--k:2"/><path ${S} d="M52 125C74 162 126 162 148 125" style="--k:3"/><path ${S} class="g" d="M100 34V216" style="--k:4"/><circle ${S} cx="100" cy="125" r="6" style="--k:5"/>`,
+    () => { const P = []; for (let r = 0; r < 4; r++) for (let c = 0; c < 3; c++) P.push([50 + c * 50, 55 + r * 45]);
+            const E = [[0,1],[1,2],[0,3],[1,4],[2,5],[3,4],[4,5],[3,6],[4,7],[5,8],[6,7],[7,8],[6,9],[7,10],[8,11],[9,10],[10,11],[0,4],[4,8],[8,10]];
+            let s = ''; E.forEach(([a, b], k) => { s += `<path ${S} ${k > 16 ? 'class="g"' : ''} d="M${P[a][0]} ${P[a][1]}L${P[b][0]} ${P[b][1]}" style="--k:${(k * .4).toFixed(1)}"/>`; });
+            P.forEach((p, k) => { s += `<circle class="dot" cx="${p[0]}" cy="${p[1]}" r="2.2" fill="currentColor" style="--k:${(k * .3).toFixed(1)}"/>`; }); return s; },
+    () => { let s = ''; for (let k = 0; k < 6; k++) { const r = 80 - k * 12; s += `<path ${S} ${k === 2 ? 'class="g"' : ''} d="M${100 - r} 200A${r} ${r} 0 0 1 ${100 + r} 200" style="--k:${k}"/>`; } return s + `<path ${S} d="M20 200H180" style="--k:6"/><path ${S} d="M20 214H180" style="--k:7"/>`; },
+    () => `<circle ${S} cx="78" cy="108" r="46" style="--k:0"/><circle ${S} cx="122" cy="108" r="46" style="--k:1"/><circle ${S} class="g" cx="100" cy="146" r="46" style="--k:2"/><circle ${S} cx="100" cy="125" r="90" opacity=".35" style="--k:3"/>`
+  ];
+
+  const pv = $('.area-preview');
+  if (pv && FINE && !RM) {
+    const pvNum = $('.area-preview__num', pv), pvArt = $('.area-preview__art', pv), pvLab = $('.area-preview__label', pv);
+    let px = 0, py = 0, tx = 0, ty = 0, on = false, raf = 0, cur = -1;
+    const loop = () => {
+      const nx = lerp(px, tx, .14), ny = lerp(py, ty, .14), vx = nx - px;
+      px = nx; py = ny;
+      const rot = clamp(vx * .35, -9, 9);                   // inercia: el panel se inclina con la velocidad
+      const left = px + 36 + 230 < vw ? px + 36 : px - 266;
+      pv.style.transform = `translate3d(${left.toFixed(1)}px,${(py - 145).toFixed(1)}px,0) rotate(${rot.toFixed(2)}deg)`;
+      raf = (on || Math.abs(tx - px) > .5 || Math.abs(ty - py) > .5) ? requestAnimationFrame(loop) : 0;
+    };
+    const kick = () => { if (!raf) raf = requestAnimationFrame(loop); };
+    $$('.area__row').forEach((row, i) => {
+      row.addEventListener('pointerenter', e => {
+        if (vw < 900 || e.pointerType !== 'mouse') return;
+        if (!on) { px = tx = e.clientX; py = ty = e.clientY; }
+        on = true;
+        if (cur !== i) {
+          cur = i;
+          pvNum.textContent = String(i + 1).padStart(2, '0');
+          pvLab.textContent = row.dataset.short || '';
+          pvArt.innerHTML = ART[i % ART.length]();
+        }
+        pv.classList.add('show'); kick();
+      });
+      row.addEventListener('pointermove', e => { tx = e.clientX; ty = e.clientY; kick(); });
+      row.addEventListener('pointerleave', () => { on = false; pv.classList.remove('show'); });
+    });
+  }
+
+  $$('[data-pick]').forEach(a => a.addEventListener('click', () => {
+    const sel = $('#f-area'); if (sel) sel.value = a.dataset.pick;
+  }));
+
+  /* ---------- 8. Sectores: rejilla de puntos que responde al cursor ---------- */
+  (function dotGrid() {
+    const cv = $('.sectors__grid'); if (!cv || !cv.getContext) return;
+    const sec = cv.parentElement, ctx = cv.getContext('2d'), GAP = 30;
+    let W = 0, H = 0, pts = [], raf = 0, vis = false, t = 0, last = 0;
+    const P = { x: -999, y: -999, tx: -999, ty: -999, a: 0, ta: 0 };
+    function build() {
+      W = sec.offsetWidth; H = sec.offsetHeight;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      cv.width = Math.round(W * dpr); cv.height = Math.round(H * dpr);
+      cv.style.width = W + 'px'; cv.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      pts = [];
+      const offX = (W % GAP) / 2, offY = (H % GAP) / 2;
+      for (let y = offY; y < H; y += GAP) for (let x = offX; x < W; x += GAP) pts.push(x, y);
+    }
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      for (let i = 0; i < pts.length; i += 2) {
+        const x = pts[i], y = pts[i + 1];
+        const w = (Math.sin((x * .6 + y) * .006 - t * .7) + 1) * .5;   // onda ambiental lenta
+        let k = 0;
+        if (P.a > .01) { const dx = x - P.x, dy = y - P.y, d2 = dx * dx + dy * dy; if (d2 < 32400) k = (1 - Math.sqrt(d2) / 180) * P.a; }
+        const s = 1 + k * 2.2 + w * .4;
+        if (k > .02) { ctx.fillStyle = '#DACD99'; ctx.globalAlpha = .18 + k * .75; }
+        else { ctx.fillStyle = '#BDBDBD'; ctx.globalAlpha = .06 + w * .09; }
+        ctx.fillRect(x - s / 2, y - s / 2, s, s);
+      }
+      ctx.globalAlpha = 1;
+    }
+    function tick(now) {
+      raf = 0; if (!vis) return;
+      const dt = last ? Math.min((now - last) / 1000, .05) : .016; last = now; t += dt;
+      P.x = lerp(P.x, P.tx, .15); P.y = lerp(P.y, P.ty, .15); P.a = lerp(P.a, P.ta, .08);
+      draw(); raf = requestAnimationFrame(tick);
+    }
+    sec.addEventListener('pointermove', e => {
+      const r = sec.getBoundingClientRect();
+      if (e.pointerType === 'mouse') {
+        P.tx = e.clientX - r.left; P.ty = e.clientY - r.top;
+        if (P.ta === 0) { P.x = P.tx; P.y = P.ty; }
+        P.ta = 1;
+      }
+      const tile = e.target.closest && e.target.closest('.sector');
+      if (tile) {
+        const tr = tile.getBoundingClientRect();
+        tile.style.setProperty('--x', (e.clientX - tr.left) + 'px');
+        tile.style.setProperty('--y', (e.clientY - tr.top) + 'px');
+      }
+    });
+    sec.addEventListener('pointerleave', () => { P.ta = 0; });
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => {
+        vis = e.isIntersecting;
+        if (vis && !RM && !raf) { last = 0; raf = requestAnimationFrame(tick); }
+      }).observe(sec);
+    }
+    let rt;
+    const rebuild = () => { build(); draw(); };
+    addEventListener('resize', () => { clearTimeout(rt); rt = setTimeout(rebuild, 150); });
+    if ('ResizeObserver' in window) new ResizeObserver(() => { clearTimeout(rt); rt = setTimeout(rebuild, 150); }).observe(sec);
+    rebuild();
+  })();
+
+  /* ---------- 9. Microinteracciones ---------- */
+  if (FINE && !RM) {
+    // Equipo: inclinación 3D sutil y reflejo que sigue al cursor
+    $$('.member__card').forEach(c => {
+      c.addEventListener('pointermove', e => {
+        const r = c.getBoundingClientRect();
+        const x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        c.style.setProperty('--ry', (x * 8).toFixed(2) + 'deg');
+        c.style.setProperty('--rx', (-y * 8).toFixed(2) + 'deg');
+        c.style.setProperty('--gx', ((x + .5) * 100).toFixed(1) + '%');
+        c.style.setProperty('--gy', ((y + .5) * 100).toFixed(1) + '%');
+      });
+      c.addEventListener('pointerleave', () => { c.style.setProperty('--rx', '0deg'); c.style.setProperty('--ry', '0deg'); });
+    });
+    // Botones magnéticos
+    $$('.magnetic').forEach(b => {
+      b.addEventListener('pointermove', e => {
+        const r = b.getBoundingClientRect();
+        b.style.setProperty('--mx', ((e.clientX - r.left - r.width / 2) * .2).toFixed(1) + 'px');
+        b.style.setProperty('--my', ((e.clientY - r.top - r.height / 2) * .3).toFixed(1) + 'px');
+      });
+      b.addEventListener('pointerleave', () => { b.style.setProperty('--mx', '0px'); b.style.setProperty('--my', '0px'); });
+    });
+  }
+
+  /* ---------- Testimonios: slider con avance automático ----------
+     Cada barra se llena en 7 s; al terminar pasa al siguiente testimonio.
+     Se pausa con el cursor encima, con foco de teclado o fuera de pantalla.
+     Admite flechas, clic en las barras y deslizar con el dedo o el mouse. */
+  (function testimonials() {
+    const root = $('.slider'); if (!root) return;
+    const slides = $$('.slide', root), bars = $$('.slider__bar', root);
+    const countEl = $('.slider__count b', root), stage = $('.slider__stage', root), mark = $('.slider__mark', root);
+    const N = slides.length; if (!N) return;
+    let cur = 0, visible = false, hover = false, focused = false;
+    root.style.setProperty('--slide-time', '7000ms');
+    const pad = n => String(n).padStart(2, '0');
+    const syncPause = () => root.classList.toggle('is-paused', !visible || hover || focused);
+    syncPause();
+
+    function go(n, dir) {
+      n = (n + N) % N;
+      if (n === cur) return;
+      const prev = slides[cur];
+      prev.style.setProperty('--out', dir < 0 ? -1 : 1);
+      prev.classList.remove('is-current'); prev.classList.add('is-leaving'); prev.setAttribute('aria-hidden', 'true');
+      setTimeout(() => prev.classList.remove('is-leaving'), 650);
+      cur = n;
+      slides[cur].classList.add('is-current'); slides[cur].removeAttribute('aria-hidden');
+      bars.forEach((b, k) => { b.classList.toggle('is-done', k < cur); b.classList.remove('is-current'); });
+      void bars[cur].offsetWidth;               // reinicia la animación de la barra
+      bars[cur].classList.add('is-current');
+      if (countEl) countEl.textContent = pad(cur + 1);
+      if (mark) mark.style.transform = 'translateY(' + (cur % 2 ? 8 : 0) + 'px) rotate(' + (cur % 2 ? 6 : 0) + 'deg)';
+    }
+
+    bars.forEach((b, k) => {
+      b.addEventListener('click', () => go(k, k > cur ? 1 : -1));
+      const fill = $('i', b);
+      if (fill) fill.addEventListener('animationend', () => { if (k === cur) go(cur + 1, 1); });
+    });
+    $$('.slider__btn', root).forEach(btn => btn.addEventListener('click', () => {
+      const d = Number(btn.dataset.dir) || 1; go(cur + d, d);
+    }));
+    root.addEventListener('keydown', e => {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(cur + 1, 1); }
+      else if (e.key === 'ArrowLeft') { e.preventDefault(); go(cur - 1, -1); }
+    });
+    root.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { hover = true; syncPause(); } });
+    root.addEventListener('pointerleave', () => { hover = false; syncPause(); });
+    root.addEventListener('focusin', () => { focused = true; syncPause(); });
+    root.addEventListener('focusout', () => { focused = false; syncPause(); });
+
+    // Deslizar (táctil o arrastre con mouse)
+    let sx = null, sy = 0;
+    stage.addEventListener('pointerdown', e => { sx = e.clientX; sy = e.clientY; });
+    addEventListener('pointerup', e => {
+      if (sx === null) return;
+      const dx = e.clientX - sx, dy = e.clientY - sy; sx = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) go(cur + (dx < 0 ? 1 : -1), dx < 0 ? 1 : -1);
+    });
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(([e]) => { visible = e.isIntersecting; syncPause(); }, { threshold: 0.35 }).observe(root);
+    } else { visible = true; syncPause(); }
+  })();
+
+  /* Ilustraciones de insights: renglones de "documento" con una línea destacada */
+  $$('.post__art svg').forEach((svg, i) => {
+    const rows = 9, hi = (i * 3 + 4) % rows, mx = 250 - i * 22;
+    let s = '';
+    for (let k = 0; k < rows; k++) {
+      const y = 30 + k * 17, len = 120 + ((k * 53 + i * 37) % 130);
+      s += `<path class="ln${k === hi ? ' g' : ''}" d="M30 ${y}H${30 + len}"/>`;
+    }
+    s += `<g class="mk"><path d="M${mx} 22V182"/><circle cx="${mx}" cy="${30 + hi * 17}" r="4"/></g>`;
+    svg.innerHTML = s;
+  });
+
+  /* ---------- 10. Formulario ---------- */
+  const form = $('#contact-form');
+  if (form) form.addEventListener('submit', e => {
+    e.preventDefault();
+    const note = $('.form__note', form);
+    if (!form.checkValidity()) {
+      note.textContent = 'Revise los campos obligatorios y la autorización de tratamiento de datos.';
+      form.reportValidity();
+      return;
+    }
+    const d = new FormData(form);
+    const body = `Nombre: ${d.get('nombre')}\nCorreo: ${d.get('correo')}\nTeléfono: ${d.get('telefono') || '—'}\nÁrea: ${d.get('area') || '—'}\n\n${d.get('mensaje')}`;
+    location.href = `mailto:sernarincon@gmail.com?subject=${encodeURIComponent('Consulta desde el sitio web — ' + d.get('nombre'))}&body=${encodeURIComponent(body)}`;
+    note.textContent = 'Abrimos su aplicación de correo con el mensaje listo para enviar. Si no se abre, escríbanos a sernarincon@gmail.com.';
+  });
+
+  $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+})();
+</script>
+<!-- Asistente virtual: se carga cuando el navegador queda libre, para no afectar la carga de la landing. -->
+<script>
+(function(){
+  function load(){
+    if (window.__srChat) return; window.__srChat = 1;
+    var css = document.createElement('link');
+    css.rel = 'stylesheet'; css.href = 'chatbot/chatbot.css';
+    css.onload = function(){ var js = document.createElement('script'); js.src = 'chatbot/chatbot.js'; document.body.appendChild(js); };
+    document.head.appendChild(css);
+  }
+  addEventListener('load', function(){ 'requestIdleCallback' in window ? requestIdleCallback(load, {timeout: 4000}) : setTimeout(load, 2000); });
+})();
+</script>
+</body>
+</html>
