@@ -20,12 +20,12 @@
     '¿Qué áreas de práctica atienden?',
     '¿Cómo puedo agendar una consulta?',
     '¿Cómo trabaja la firma?',
-    '¿Qué tipo de asesoría necesito para una sucesión?',
+    'No sé qué tipo de abogado necesito, ¿me orientan?',
   ];
   const GREETING = 'Bienvenido a Serna-Rincón Abogados. Puedo informarle sobre nuestras áreas de práctica, nuestra forma de trabajar y cómo agendar una consulta. ¿En qué puedo orientarle?';
   const ERR_NETWORK = 'No fue posible obtener una respuesta. Revise su conexión e intente de nuevo.';
   const ERR_GENERIC = 'El asistente no está disponible en este momento. Intente más tarde o contáctenos por teléfono, WhatsApp o correo.';
-  const ERR_LIMIT = 'Se alcanzó el límite de mensajes de esta conversación. Para continuar, contáctenos al +57 315 609 9876 o en sernarincon@gmail.com, o borre la conversación para empezar de nuevo.';
+  const ERR_LIMIT = 'Se alcanzó el límite de mensajes de esta conversación. Para continuar, contáctenos al +57 315 903 3322 o en sernarinconabogados@gmail.com, o borre la conversación para empezar de nuevo.';
 
   /* ---------- Estado (solo memoria) ---------- */
   let history = [];               // [{ role: 'user'|'model', text }]
@@ -71,7 +71,7 @@
   /* ---------- Formato seguro del texto del modelo ----------
      Admite párrafos, listas con "-", "*" o "1." y **negritas**.
      El correo y el teléfono de la firma se convierten en enlaces. Todo lo demás es texto plano. */
-  const LINK_RE = /(sernarincon@gmail\.com|\+57 ?315 ?609 ?9876|\b123\b)/g;
+  const LINK_RE = /(sernarinconabogados@gmail\.com|(?:\+57 ?)?315 ?903 ?33 ?22|\b123\b)/g;
   function inline(parent, text) {
     const parts = text.split(/(\*\*[^*]+\*\*)/g);
     for (const part of parts) {
@@ -81,7 +81,8 @@
       for (const m of part.matchAll(LINK_RE)) {
         if (m.index > last) parent.append(document.createTextNode(part.slice(last, m.index)));
         const v = m[0];
-        const href = v.includes('@') ? 'mailto:' + v : 'tel:' + v.replace(/\s/g, '');
+        const digits = v.replace(/\D/g, '');
+        const href = v.includes('@') ? 'mailto:' + v : 'tel:' + (digits.length === 10 ? '+57' + digits : digits.length > 3 ? '+' + digits : digits);
         parent.append(h('a', { href, text: v }));
         last = m.index + v.length;
       }

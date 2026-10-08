@@ -28,6 +28,7 @@ const MSG = {
   rate: 'Ha enviado varios mensajes en poco tiempo. Espere un momento e intente de nuevo.',
   session: 'Se alcanzó el límite de mensajes de esta conversación. Para continuar, contáctenos por teléfono, WhatsApp o correo.',
   forbidden: 'Solicitud no permitida.',
+  busy: 'El asistente está recibiendo muchas consultas en este momento. Espere un minuto e intente de nuevo, o contáctenos por teléfono, WhatsApp o correo.',
   unavailable: 'El asistente no está disponible en este momento. Intente más tarde o contáctenos por teléfono, WhatsApp o correo.',
 };
 
@@ -188,7 +189,7 @@ export async function POST(request) {
   } catch (err) {
     clearTimeout(timer);
     logError(err);
-    return json(502, { error: MSG.unavailable }, cors);
+    return json(isQuota(err) ? 503 : 502, { error: isQuota(err) ? MSG.busy : MSG.unavailable }, cors);
   }
 
   /* Formato NDJSON: {"t":"texto"} … {"done":true}  ó  {"error":"mensaje"} */
@@ -206,7 +207,7 @@ export async function POST(request) {
         else send({ done: true });
       } catch (err) {
         logError(err);
-        send({ error: MSG.unavailable });
+        send({ error: isQuota(err) ? MSG.busy : MSG.unavailable });
       } finally {
         clearTimeout(timer);
         ctrl.close();
@@ -220,6 +221,9 @@ export async function POST(request) {
     headers: { ...cors, 'Content-Type': 'application/x-ndjson; charset=utf-8', 'Cache-Control': 'no-store', 'X-Content-Type-Options': 'nosniff' },
   });
 }
+
+/* 429 de Gemini: se agotó la cuota por minuto del proyecto de Google. */
+function isQuota(err) { return err instanceof ApiError && err.status === 429; }
 
 /* Solo se registra el tipo de fallo y el código HTTP; nunca el contenido. */
 function logError(err) {
