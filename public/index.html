@@ -291,6 +291,10 @@ p,li,blockquote{text-wrap:pretty}
 .pillar__n{font-family:var(--f-body);font-style:italic;font-size:15px;color:var(--gold-text)}
 .pillar h3{font-family:var(--f-display);font-weight:400;font-size:28px;margin:6px 0 0;color:var(--navy)}
 .pillar p{font-size:17px;line-height:1.7;color:var(--muted);max-width:36em}
+/* Texto justificado (como «Justificar» en Word) con división de palabras en español para evitar huecos */
+.hero__lead,.step p,.pillar p{text-align:justify;-webkit-hyphens:none;hyphens:none}
+.jl{display:block;white-space:nowrap;text-align:justify;text-align-last:justify}
+.jl--last{text-align-last:left}
 .firm__lead{margin-top:28px;font-size:18px;line-height:1.65;color:var(--muted);max-width:42em}
 
 /* =========================================================
@@ -350,16 +354,16 @@ p,li,blockquote{text-wrap:pretty}
 .area__link:hover svg{transform:translateX(4px)}
 
 /* Panel abstracto que sigue al cursor sobre cada área */
-.area-preview{position:fixed;left:0;top:0;width:230px;height:290px;z-index:40;pointer-events:none;opacity:0;scale:.86;transition:opacity .35s var(--ease),scale .5s var(--ease);will-change:transform}
+.area-preview{position:fixed;left:0;top:0;width:184px;height:232px;z-index:40;pointer-events:none;opacity:0;scale:.86;transition:opacity .35s var(--ease),scale .5s var(--ease);will-change:transform}
 .area-preview.show{opacity:1;scale:1}
-.area-preview__in{position:relative;width:100%;height:100%;border-radius:6px;overflow:hidden;padding:18px;color:rgba(255,255,255,.78);
+.area-preview__in{position:relative;width:100%;height:100%;border-radius:6px;overflow:hidden;padding:15px;color:rgba(255,255,255,.78);
   background:radial-gradient(120% 80% at 80% 0%,#173A62 0%,var(--navy) 45%,var(--navy-3) 100%);box-shadow:0 34px 60px -24px rgba(15,43,75,.6);display:flex;flex-direction:column;justify-content:space-between}
-.area-preview__num{font-family:var(--f-display);font-size:34px;color:var(--gold);line-height:1}
+.area-preview__num{font-family:var(--f-display);font-size:28px;color:var(--gold);line-height:1}
 .area-preview__art{position:absolute;inset:0;width:100%;height:100%}
 .area-preview__art [pathLength]{stroke-width:1;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.4s var(--ease) forwards;animation-delay:calc(var(--k)*70ms)}
 .area-preview__art .g{color:var(--gold)}
 .area-preview__art .dot{opacity:0;animation:fadeIn .6s var(--ease) forwards;animation-delay:calc(var(--k)*70ms + 300ms)}
-.area-preview__label{position:relative;font-family:var(--f-label);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#fff}
+.area-preview__label{position:relative;font-family:var(--f-label);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#fff}
 @keyframes draw{to{stroke-dashoffset:0}}
 @keyframes fadeIn{to{opacity:1}}
 
@@ -654,7 +658,7 @@ p,li,blockquote{text-wrap:pretty}
   .firm .firm__grid{grid-template-columns:1fr}
   .firm::before{display:none}
   .firm__aside{margin:calc(var(--pad) * -1) calc(var(--gutter) * -1) 0;padding:var(--pad) var(--gutter) 0;background:linear-gradient(180deg,#101d2a 0%,var(--ink-panel) 50%,#0b1520 100%)}
-  .firm__statue{position:relative;top:auto;margin:20px auto 0;max-width:520px;height:min(72svh,640px)}
+  .firm__statue{position:relative;top:auto;margin:20px auto 0;width:min(100%,480px);height:auto;aspect-ratio:540/720}
   .commit{grid-template-columns:1fr;gap:28px}
   .area__row{grid-template-columns:40px 1fr 40px;gap:14px;padding:24px 0}
   .area__icon{width:40px;height:40px}
@@ -1676,8 +1680,8 @@ p,li,blockquote{text-wrap:pretty}
       const nx = lerp(px, tx, .14), ny = lerp(py, ty, .14), vx = nx - px;
       px = nx; py = ny;
       const rot = clamp(vx * .35, -9, 9);                   // inercia: el panel se inclina con la velocidad
-      const left = px + 36 + 230 < vw ? px + 36 : px - 266;
-      pv.style.transform = `translate3d(${left.toFixed(1)}px,${(py - 145).toFixed(1)}px,0) rotate(${rot.toFixed(2)}deg)`;
+      const left = px + 32 + 184 < vw ? px + 32 : px - 216;
+      pv.style.transform = `translate3d(${left.toFixed(1)}px,${(py - 116).toFixed(1)}px,0) rotate(${rot.toFixed(2)}deg)`;
       raf = (on || Math.abs(tx - px) > .5 || Math.abs(ty - py) > .5) ? requestAnimationFrame(loop) : 0;
     };
     const kick = () => { if (!raf) raf = requestAnimationFrame(loop); };
@@ -1883,6 +1887,60 @@ p,li,blockquote{text-wrap:pretty}
   });
 
   $$('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+})();
+</script>
+<!-- Justificado fino: elige los cortes de línea mirando el párrafo completo (como Word) y reparte el sobrante
+     entre letras y palabras, sin partir palabras. Se recalcula al cambiar el tamaño de la ventana. -->
+<script>
+(function () {
+  var targets = Array.prototype.slice.call(document.querySelectorAll('.hero__lead, .step p, .pillar p'));
+  if (!targets.length) return;
+  var MAX_EM = 0.045, SHARE = 0.7, TOL = 3;
+  var ctx = document.createElement('canvas').getContext('2d');
+  targets.forEach(function (p) { p.dataset.text = p.textContent.trim().replace(/\s+/g, ' '); });
+
+  function layout(p) {
+    var words = p.dataset.text.split(' ');
+    p.textContent = p.dataset.text;                       // estado natural para medir el ancho disponible
+    var cs = getComputedStyle(p), fs = parseFloat(cs.fontSize);
+    var W = p.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight) - TOL;
+    if (W < 120) return;
+    ctx.font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+    var sp = ctx.measureText(' ').width, w = words.map(function (x) { return ctx.measureText(x).width; });
+    var n = words.length, best = [0], from = [0];
+    for (var j = 1; j <= n; j++) {                        // mínimo de la suma de sobrantes al cuadrado
+      best[j] = Infinity;
+      var len = -sp;
+      for (var i = j - 1; i >= 0; i--) {
+        len += w[i] + sp;
+        if (len > W) break;
+        var cost = best[i] + (j === n ? 0 : Math.pow(W - len, 2));
+        if (cost < best[j]) { best[j] = cost; from[j] = i; }
+      }
+      if (best[j] === Infinity) { best[j] = best[j - 1]; from[j] = j - 1; }
+    }
+    var cuts = [], k = n;
+    while (k > 0) { cuts.unshift([from[k], k]); k = from[k]; }
+    p.textContent = '';
+    cuts.forEach(function (c, idx) {
+      var line = document.createElement('span');
+      line.className = 'jl' + (idx === cuts.length - 1 ? ' jl--last' : '');
+      var txt = words.slice(c[0], c[1]).join(' ');
+      line.textContent = txt;
+      if (idx < cuts.length - 1) {
+        var natural = 0; for (var q = c[0]; q < c[1]; q++) natural += w[q];
+        natural += sp * (c[1] - c[0] - 1);
+        var slack = W + TOL - natural - 1, chars = txt.replace(/ /g, '').length;
+        if (slack > 0 && chars) line.style.letterSpacing = Math.min(slack * SHARE / chars, fs * MAX_EM).toFixed(3) + 'px';
+      }
+      p.appendChild(line);
+      if (idx < cuts.length - 1) p.appendChild(document.createTextNode(' '));
+    });
+  }
+  function run() { targets.forEach(layout); }
+  var ready = document.fonts && document.fonts.ready ? document.fonts.ready : Promise.resolve();
+  ready.then(run);
+  var t; addEventListener('resize', function () { clearTimeout(t); t = setTimeout(run, 120); });
 })();
 </script>
 <!-- Asistente virtual: se carga cuando el navegador queda libre, para no afectar la carga de la landing. -->
