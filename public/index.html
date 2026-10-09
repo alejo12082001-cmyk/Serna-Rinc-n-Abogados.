@@ -743,6 +743,32 @@ p,li,blockquote{text-wrap:pretty}
   .js .nav,.js .wa{opacity:1;scale:1}
   .area-preview{display:none}
 }
+
+/* ============ PRIMERA CONSULTA ============ */
+.first{background:var(--white);padding:var(--pad) 0}
+.first__grid{display:grid;grid-template-columns:minmax(300px,.8fr) 1.2fr;gap:clamp(40px,7vw,110px);align-items:start}
+.first .title{font-size:clamp(34px,3.6vw,54px);max-width:13ch}
+.first__lead{margin-top:24px;font-size:17.5px;line-height:1.65;color:var(--muted);max-width:26em}
+.first__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.first__steps{list-style:none;padding:0;border-top:1px solid var(--hair-l)}
+.first__steps li{display:grid;grid-template-columns:56px 1fr;gap:6px 18px;padding:26px 0;border-bottom:1px solid var(--hair-l)}
+.first__steps .n{grid-row:span 3;font-family:var(--f-display);font-size:28px;line-height:1;color:var(--navy)}
+.first__steps h3{font-family:var(--f-display);font-weight:400;font-size:clamp(21px,1.8vw,25px);line-height:1.25;color:var(--navy)}
+.first__steps p{font-size:16.5px;line-height:1.6;color:var(--muted);max-width:36em}
+.first__bring{margin-top:44px;padding:clamp(24px,3vw,36px);border-radius:6px;background:var(--paper);box-shadow:inset 0 0 0 1px var(--hair-l)}
+.first__bring h3{font-family:var(--f-label);font-size:12px;font-weight:500;letter-spacing:.24em;text-transform:uppercase;color:var(--navy);margin-bottom:18px}
+.first__bring ul{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:12px 32px}
+.first__bring li{position:relative;padding-left:22px;font-size:16px;line-height:1.5;color:var(--ink)}
+.first__bring li::before{content:"";position:absolute;left:0;top:.45em;width:10px;height:6px;border-left:1.5px solid var(--navy);border-bottom:1.5px solid var(--navy);transform:rotate(-45deg)}
+.first__bring .warn{margin-top:20px;padding-top:16px;border-top:1px solid var(--hair-l);font-size:15.5px;line-height:1.55;color:var(--muted)}
+.first__bring .warn b{color:var(--navy);font-weight:500}
+/* Marca de borrador: datos que debe confirmar la firma (retirar antes de publicar) */
+.pend{justify-self:start;display:inline-block;margin-top:6px;padding:3px 8px;border-radius:3px;background:rgba(218,205,153,.5);font-family:var(--f-label);font-size:11.5px;font-weight:500;letter-spacing:.04em;color:var(--ink)}
+@media (max-width:1000px){.first__grid{grid-template-columns:1fr}.first .title{max-width:18ch}}
+@media (max-width:600px){.first__bring ul{grid-template-columns:1fr}.first__steps li{grid-template-columns:36px 1fr;gap:4px 12px}.first__steps .n{font-size:22px}}
+.foot__top{grid-template-columns:1.3fr 1fr 1fr 1fr}
+@media (max-width:900px){.foot__top{grid-template-columns:1fr 1fr}}
+@media (max-width:600px){.foot__top{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -790,7 +816,7 @@ p,li,blockquote{text-wrap:pretty}
       </span>
     </a>
     <nav class="nav__links" aria-label="Principal">
-      <a href="#firma">Firma</a><a href="#areas">Áreas</a><a href="#metodo">Método</a><a href="#equipo">Equipo</a><a href="#preguntas">Preguntas</a>
+      <a href="#firma">Firma</a><a href="#areas">Áreas</a><a href="#metodo">Método</a><a href="#equipo">Equipo</a><a href="#consulta">Primera consulta</a><a href="#preguntas">Preguntas</a>
     </nav>
     <a class="btn btn--gold btn--sm magnetic nav__cta" href="#contacto"><span class="btn__t"><span>Hable con nosotros</span></span></a>
     <button class="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span><span></span></button>
@@ -806,7 +832,8 @@ p,li,blockquote{text-wrap:pretty}
     <a href="#equipo" style="--i:4"><span>05</span>Equipo</a>
     <a href="#preguntas" style="--i:5"><span>06</span>Preguntas</a>
     <a href="#video" style="--i:6"><span>07</span>Video</a>
-    <a href="#contacto" style="--i:7"><span>08</span>Contacto</a>
+    <a href="#consulta" style="--i:7"><span>08</span>Primera consulta</a>
+    <a href="#contacto" style="--i:8"><span>09</span>Contacto</a>
   </nav>
   <div class="menu__foot">
     <a href="tel:+573159033322">+57 315 903 3322</a>
@@ -1241,11 +1268,47 @@ p,li,blockquote{text-wrap:pretty}
     </div>
   </section>
 
-  <!-- ============ 08 CONTACTO ============ -->
+  <!-- ============ 08 PRIMERA CONSULTA ============
+       Los textos con la clase .pend son datos que debe confirmar la firma: complételos o retírelos antes de publicar. -->
+  <section class="first" id="consulta" aria-labelledby="consulta-t">
+    <div class="wrap first__grid">
+      <div>
+        <div class="sec-head"><span class="n">08</span><i></i><span>Primera consulta</span></div>
+        <h2 id="consulta-t" class="title split">Su primera consulta, paso a paso.</h2>
+        <p class="first__lead" data-r>Así funciona el primer contacto con la firma, para que sepa qué esperar y llegue preparado.</p>
+        <div class="first__cta" data-r style="--d:120">
+          <a class="btn btn--gold magnetic" href="#contacto"><span class="btn__t"><span>Agendar consulta</span></span><svg class="btn__a" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a>
+          <a class="btn btn--line magnetic" href="https://wa.me/573159033322?text=Hola%2C%20quisiera%20agendar%20una%20consulta." target="_blank" rel="noopener"><span class="btn__t"><span>Escribir por WhatsApp</span></span></a>
+        </div>
+      </div>
+      <div>
+        <ol class="first__steps" data-r>
+          <li><span class="n">01</span><h3>Nos cuenta su situación</h3><p>Por WhatsApp, teléfono, correo o el formulario de esta página. Basta un resumen breve; no incluya todavía datos sensibles ni documentos confidenciales.</p></li>
+          <li><span class="n">02</span><h3>Un abogado revisa su consulta</h3><p>Un abogado de la firma la estudia y le contacta personalmente para coordinar una reunión, presencial en Bogotá o virtual.</p></li>
+          <li><span class="n">03</span><h3>Reunión inicial</h3><p>Escuchamos el caso completo, revisamos sus documentos y le explicamos en lenguaje claro las alternativas que tiene.</p><span class="pend">Pendiente de la firma: indicar si la reunión inicial tiene costo y cuánto dura</span></li>
+          <li><span class="n">04</span><h3>Propuesta por escrito</h3><p>Si decide avanzar, recibe por escrito el alcance del servicio y los honorarios antes de empezar.</p></li>
+        </ol>
+        <div class="first__bring" data-r style="--d:120">
+          <h3>Qué tener a mano</h3>
+          <ul>
+            <li>Su documento de identidad o, si es una empresa, el certificado de existencia y representación legal.</li>
+            <li>Contratos, facturas, escrituras o actas relacionadas con el asunto.</li>
+            <li>Notificaciones, demandas, citaciones o actos administrativos que haya recibido, con su fecha.</li>
+            <li>Una cronología breve de lo ocurrido y los nombres de las personas o empresas involucradas.</li>
+            <li>Correos, mensajes o fotografías que sirvan como soporte.</li>
+            <li>Las preguntas que quiera resolver en la reunión.</li>
+          </ul>
+          <p class="warn"><b>Si recibió una notificación o un documento con plazo,</b> contáctenos cuanto antes: algunos términos legales son cortos y empiezan a correr desde la notificación.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 09 CONTACTO ============ -->
   <section class="contact dark" id="contacto" aria-labelledby="contacto-t">
     <div class="wrap contact__grid">
       <div>
-        <div class="sec-head"><span class="n">08</span><i></i><span>Contacto</span></div>
+        <div class="sec-head"><span class="n">09</span><i></i><span>Contacto</span></div>
         <h2 id="contacto-t" class="title split">Hablemos de lo que está en juego.</h2>
         <p class="contact__lead" data-r>Cuéntenos su situación. Un abogado de la firma revisará su consulta y le responderá personalmente.</p>
         <ul class="channels" data-r style="--d:120">
@@ -1295,17 +1358,22 @@ p,li,blockquote{text-wrap:pretty}
       </div>
       <div>
         <h4>Firma</h4>
-        <ul><li><a href="#firma">La firma</a></li><li><a href="#areas">Áreas de práctica</a></li><li><a href="#metodo">Método</a></li><li><a href="#experiencia">Experiencia</a></li><li><a href="#equipo">Equipo</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li><li><a href="#video">Video</a></li></ul>
+        <ul><li><a href="#firma">La firma</a></li><li><a href="#areas">Áreas de práctica</a></li><li><a href="#metodo">Método</a></li><li><a href="#experiencia">Experiencia</a></li><li><a href="#equipo">Equipo</a></li><li><a href="#preguntas">Preguntas frecuentes</a></li><li><a href="#video">Video</a></li><li><a href="#consulta">Primera consulta</a></li></ul>
       </div>
       <div>
         <h4>Contacto</h4>
         <ul><li><a href="tel:+573159033322">+57 315 903 3322</a></li><li><a href="mailto:sernarinconabogados@gmail.com">sernarinconabogados@gmail.com</a></li><li><a href="https://www.google.com/maps/search/?api=1&amp;query=Cra.%203%20%23%209-40%2C%20Bogot%C3%A1%2C%20Colombia" target="_blank" rel="noopener">Cra. 3 # 9-40, Unidad AJ, Bogotá D.C.</a></li><li>Lunes a viernes, 8:00 a. m. – 5:00 p. m.</li><li><a href="https://www.instagram.com/sernarinconabogados/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.tiktok.com/@sernarinconabogados" target="_blank" rel="noopener">TikTok</a></li></ul>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <ul><li><a href="politica-de-tratamiento-de-datos.html">Política de tratamiento de datos</a></li><li><a href="politica-de-tratamiento-de-datos.html#derechos">Sus derechos sobre sus datos</a></li><li><a href="aviso-legal.html">Aviso legal y condiciones de uso</a></li></ul>
       </div>
     </div>
     <div class="foot__mega" aria-hidden="true">Serna-Rincón</div>
     <div class="foot__base">
       <span>© <span data-year>2026</span> Serna-Rincón Abogados S.A.S. · NIT 901957172-4</span>
       <a href="politica-de-tratamiento-de-datos.html">Política de tratamiento de datos</a>
+      <a href="aviso-legal.html">Aviso legal</a>
       <span>El contenido de este sitio no constituye asesoría jurídica.</span>
     </div>
   </div>
