@@ -302,7 +302,6 @@ p,li,blockquote{text-wrap:pretty}
    ========================================================= */
 .ticker{background:var(--paper);border-block:1px solid var(--hair-l);overflow:hidden;padding:24px 0}
 .ticker__track{display:flex;width:max-content;animation:tick 55s linear infinite}
-.ticker:hover .ticker__track{animation-play-state:paused}
 .ticker__g{display:flex;align-items:center;gap:52px;padding-right:52px;font-family:var(--f-display);font-size:clamp(24px,2.5vw,38px);color:var(--ink);white-space:nowrap}
 .ticker__g em{font-family:var(--f-body);font-weight:300;color:var(--muted)}
 .ticker__g i{display:block;width:30px;height:1px;background:var(--gold-text)}
@@ -595,7 +594,9 @@ p,li,blockquote{text-wrap:pretty}
 .channels a::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .8s var(--ease)}
 .channels a:hover::after{transform:scaleX(1)}
 .channels .k{font-family:var(--f-label);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.5)}
-.channels .v{font-family:var(--f-display);font-size:clamp(19px,1.7vw,24px);transition:transform .7s var(--ease),color .4s;overflow-wrap:anywhere}
+.channels .v{font-family:var(--f-display);font-size:clamp(17px,1.45vw,21px);transition:transform .7s var(--ease),color .4s;overflow-wrap:normal}
+@media (min-width:901px) and (max-width:1180px){.channels a{grid-template-columns:92px 1fr 20px;gap:12px}.channels .v{font-size:16px}}
+@media (max-width:1000px){.contact__grid{grid-template-columns:1fr}}
 .channels a:hover .v{transform:translateX(8px);color:var(--gold)}
 .contact__hours{margin-top:28px;font-size:16px;line-height:1.6;color:rgba(255,255,255,.7);max-width:32em}
 .contact__hours .k{display:block;margin-bottom:6px;font-family:var(--f-label);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.5)}
@@ -1208,8 +1209,8 @@ p,li,blockquote{text-wrap:pretty}
         <ul class="channels" data-r style="--d:120">
           <li><a href="tel:+573159033322"><span class="k">Teléfono</span><span class="v">+57 315 903 3322</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></li>
           <li><a href="https://wa.me/573159033322?text=Hola%2C%20quisiera%20hacer%20una%20consulta%20jur%C3%ADdica." target="_blank" rel="noopener"><span class="k">WhatsApp</span><span class="v">Escribir ahora</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></li>
-          <li><a href="mailto:sernarinconabogados@gmail.com"><span class="k">Correo</span><span class="v">sernarinconabogados@gmail.com</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></li>
-          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Cra.%203%20%23%209-40%2C%20Bogot%C3%A1%2C%20Colombia" target="_blank" rel="noopener"><span class="k">Dirección</span><span class="v">Cra. 3 # 9-40, Unidad AJ, Bogotá D.C.</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></li>
+          <li><a href="mailto:sernarinconabogados@gmail.com"><span class="k">Correo</span><span class="v">sernarinconabogados<wbr>@gmail.com</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></li>
+          <li><a href="https://www.google.com/maps/search/?api=1&amp;query=Cra.%203%20%23%209-40%2C%20Bogot%C3%A1%2C%20Colombia" target="_blank" rel="noopener"><span class="k">Dirección</span><span class="v">Cra. 3 # 9-40, Unidad AJ,<wbr> Bogotá D.C.</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></li>
           <li><a href="https://www.instagram.com/sernarinconabogados/" target="_blank" rel="noopener"><span class="k">Instagram</span><span class="v">@sernarinconabogados</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></li>
           <li><a href="https://www.tiktok.com/@sernarinconabogados" target="_blank" rel="noopener"><span class="k">TikTok</span><span class="v">@sernarinconabogados</span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h11M9 4l4 4-4 4"/></svg></a></li>
         </ul>
