@@ -112,6 +112,21 @@
     }
   }
 
+  /* Isologo de la firma: reutiliza el símbolo #mark de la página si existe. */
+  function mark() {
+    if (!document.getElementById('mark')) return null;
+    const svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 64 64');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('focusable', 'false');
+    svg.setAttribute('class', 'src-mark mark-tone');
+    const use = document.createElementNS(NS, 'use');
+    use.setAttribute('href', '#mark');
+    svg.append(use);
+    if (window.srMark) window.srMark(svg);   // destello y sincronía (marca.js)
+    return svg;
+  }
+
   /* ---------- Construcción de la interfaz ---------- */
   const root = h('div', { class: 'src' });
 
@@ -154,6 +169,7 @@
     class: 'src-panel', id: 'src-panel', role: 'dialog', 'aria-modal': 'true', 'aria-labelledby': 'src-title', 'aria-hidden': 'true',
   },
     h('header', { class: 'src-head' },
+      mark(),
       h('div', { class: 'src-head__t' },
         h('span', { class: 'src-head__l', text: 'Serna-Rincón Abogados' }),
         h('h2', { id: 'src-title', text: 'Asistente virtual' })),
