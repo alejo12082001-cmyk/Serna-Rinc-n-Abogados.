@@ -27,7 +27,7 @@
   var origin = null;
   function sync() {
     document.getAnimations().forEach(function (a) {
-      if (a.animationName !== 'markTone' && a.animationName !== 'markSheen') return;
+      if (['markFill', 'markRule', 'markSheen'].indexOf(a.animationName) < 0) return;
       if (origin == null) origin = a.startTime;
       if (origin != null && a.startTime !== origin) a.startTime = origin;
     });
@@ -41,11 +41,11 @@
   /* ---------- Favicon ---------- */
   var link = document.querySelector('link[rel="icon"]');
   var iso = document.querySelector('#iso path');
-  var ref = document.querySelector('.brand.mark-tone');   // el del telón de carga se elimina
+  var ref = document.querySelector('.brand .mark-bg');   // el del telón de carga se elimina
   if (!link || !iso || !ref || !ref.getAnimations) return;
 
   var TONES = ['#0F2B4B', '#17171C', '#5F5F5F'];
-  var CYCLE = 18000;          // igual que markTone en el CSS
+  var CYCLE = 18000;          // igual que markFill en el CSS
   var d = iso.getAttribute('d');
   var icons = TONES.map(function (c) {
     var svg = "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='" + c + "'/>" +

@@ -40,21 +40,20 @@ a{color:var(--navy)}
    El isotipo plateado conserva contraste ≥ 4.5:1 sobre los tres fondos.
    La línea bajo el nombre toma el tono de cada versión (dorado, plata, gris) y en cada
    cambio un destello de luz recorre la columna. */
-@property --mark-bg{syntax:'<color>';inherits:true;initial-value:#0F2B4B}
-@property --mark-rule{syntax:'<color>';inherits:true;initial-value:#DACD99}
-@keyframes markTone{
-  0%,26%{--mark-bg:#0F2B4B;--mark-rule:#DACD99}
-  33%,59%{--mark-bg:#17171C;--mark-rule:#E5E5E5}
-  66%,92%{--mark-bg:#5F5F5F;--mark-rule:#A8A8A8}
-  100%{--mark-bg:#0F2B4B;--mark-rule:#DACD99}}
-.mark-tone{animation:markTone 18s ease-in-out infinite}
+@keyframes markFill{
+  0%,26%{fill:#0F2B4B}33%,59%{fill:#17171C}66%,92%{fill:#5F5F5F}100%{fill:#0F2B4B}}
+@keyframes markRule{
+  0%,26%{background-color:#DACD99}33%,59%{background-color:#E5E5E5}66%,92%{background-color:#A8A8A8}100%{background-color:#DACD99}}
+/* Cada elemento lleva su propia animación (no variables heredadas): así el color siempre se repinta */
+.mark-bg{fill:#0F2B4B;animation:markFill 18s ease-in-out infinite}
+.mark-tone .brand__rule{animation:markRule 18s ease-in-out infinite}
 @keyframes markSheen{0%,72%{transform:translateX(0) skewX(-18deg)}98%,100%{transform:translateX(118px) skewX(-18deg)}}
 .mark-sheen{transform:skewX(-18deg);animation:markSheen 6s cubic-bezier(.45,0,.2,1) infinite}
-@media (prefers-reduced-motion:reduce){.mark-tone{animation:none}.mark-sheen{display:none}}
+@media (prefers-reduced-motion:reduce){.mark-bg,.mark-tone .brand__rule{animation:none}.mark-sheen{display:none}}
 
 .brand__type{display:flex;flex-direction:column;line-height:1}
 .brand__name{font-family:var(--f-display);font-size:21px}
-.brand__rule{display:block;height:1px;margin:5px 0;background:var(--mark-rule,var(--gold));opacity:.85}
+.brand__rule{display:block;height:1px;margin:5px 0;background:var(--gold);opacity:.85}
 .brand__sub{font-family:var(--f-label);font-size:8.5px;font-weight:500;letter-spacing:.34em;text-transform:uppercase;color:rgba(255,255,255,.82)}
 .back{font-family:var(--f-label);font-size:12px;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:#fff;text-decoration:none;border-bottom:1px solid var(--gold);padding-bottom:3px}
 .top :focus-visible{outline-color:var(--gold)}
@@ -112,7 +111,6 @@ dd{margin:0}
       <use href="#iso" x="7" y="6.5" width="50" height="51" fill="#fff"/>
     </mask>
     <symbol id="mark" viewBox="0 0 64 64">
-      <rect width="64" height="64" style="fill:var(--mark-bg,#0F2B4B)"/>
       <rect x=".5" y=".5" width="63" height="63" fill="none" stroke="#fff" stroke-opacity=".16"/>
       <use href="#iso" x="7" y="6.5" width="50" height="51" fill="url(#silver)" filter="url(#isoShadow)"/>
     </symbol>
@@ -122,7 +120,7 @@ dd{margin:0}
 <header class="top">
   <div class="top__in">
     <a class="brand mark-tone" href="index.html" aria-label="Serna-Rincón Abogados, ir al inicio">
-      <svg viewBox="0 0 64 64" aria-hidden="true"><use href="#mark"/></svg>
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect class="mark-bg" width="64" height="64"/><use href="#mark"/></svg>
       <span class="brand__type" aria-hidden="true"><span class="brand__name">Serna-Rincón</span><span class="brand__rule"></span><span class="brand__sub">Abogados</span></span>
     </a>
     <a class="back" href="index.html">Volver al inicio</a>

@@ -120,9 +120,13 @@
     svg.setAttribute('aria-hidden', 'true');
     svg.setAttribute('focusable', 'false');
     svg.setAttribute('class', 'src-mark mark-tone');
+    const bg = document.createElementNS(NS, 'rect');
+    bg.setAttribute('class', 'mark-bg');
+    bg.setAttribute('width', '64');
+    bg.setAttribute('height', '64');
     const use = document.createElementNS(NS, 'use');
     use.setAttribute('href', '#mark');
-    svg.append(use);
+    svg.append(bg, use);
     if (window.srMark) window.srMark(svg);   // destello y sincronía (marca.js)
     return svg;
   }
